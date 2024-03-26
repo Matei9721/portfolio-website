@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/portofolio-website/static/css/main.ad79723f.css",
-    "main.js": "/portofolio-website/static/js/main.5d66773c.js",
+    "main.js": "/portofolio-website/static/js/main.6c9f0f46.js",
     "static/js/845.f6fe5990.chunk.js": "/portofolio-website/static/js/845.f6fe5990.chunk.js",
     "static/js/787.749b4a44.chunk.js": "/portofolio-website/static/js/787.749b4a44.chunk.js",
     "static/media/obi-wan-hello-there.mp3": "/portofolio-website/static/media/obi-wan-hello-there.38d64d5c6754484b0294.mp3",
     "index.html": "/portofolio-website/index.html",
     "main.ad79723f.css.map": "/portofolio-website/static/css/main.ad79723f.css.map",
-    "main.5d66773c.js.map": "/portofolio-website/static/js/main.5d66773c.js.map",
+    "main.6c9f0f46.js.map": "/portofolio-website/static/js/main.6c9f0f46.js.map",
     "845.f6fe5990.chunk.js.map": "/portofolio-website/static/js/845.f6fe5990.chunk.js.map",
     "787.749b4a44.chunk.js.map": "/portofolio-website/static/js/787.749b4a44.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ad79723f.css",
-    "static/js/main.5d66773c.js"
+    "static/js/main.6c9f0f46.js"
   ]
 }
