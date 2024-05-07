@@ -3,14 +3,6 @@
   background-color: #272822; /* Background color */
 }
 
-.header {
-  color: blue;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 10px;
-}
-
 .pageTitle {
   color: blue;
   font-size: 36px;
@@ -32,7 +24,7 @@
   text-align: center;
   margin-left: 25px;
   margin-right: 25px;
-  height: 20em;
+  height: 35em;
 }
 
 .centered-container {
@@ -57,13 +49,15 @@
 
 .typewriter-string {
   font-size: 60px;
+  font-family: 'Courier New', monospace; /* Monospaced font */
 }
 
 /* Style for variable names and keywords */
 .typewriter-cursor {
   color: #f92672;
   border-left: 2px solid #f92672;
-  animation: blink-caret 1.5s step-end infinite;
+  animation: blink-caret 2s step-end infinite;
+  font-size: 35px;
 }
 
 @keyframes blink-caret {
@@ -99,7 +93,6 @@
   vertical-align: middle;
   margin: 0px 0px 0.1rem 0.5rem;
 }
-
 
 @keyframes fadeIn-data-after-entity {
   0% {
@@ -139,16 +132,18 @@
 }
 
 [data-entity][data-entity="role"] {
-  background: rgb(187, 47, 117, 0.2);
-  border-color: rgb(187, 47, 117);
-  color: rgb(255, 255, 255);
-  font-size: 40px;
-  animation: fadeIn-data-after-entity 2s forwards 1.7s;
+  background: rgb(239, 239, 240);
+  color: rgb(38, 35, 35);
+  border: 1px solid rgb(119, 119, 220);
+  border-radius: 0.55em;
+  padding: 0.15em;
+  margin: 0px 0px 0rem 0rem;
 }
 
 [data-entity][data-entity="role"]::after {
-  background: rgb(187, 47, 117);
-  animation: fadeIn-data-after-entity 0s forwards 1.9s;
+  background: rgb(119, 119, 220);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(119, 119, 220);
 }
 
 [data-entity][data-entity="freelance"] {
@@ -162,18 +157,38 @@
   color: rgb(0, 0, 0);
 }
 
-[data-entity][data-entity="verb"] {
-  background: rgb(255, 0, 0);
-  border-color: rgb(222, 0, 34);
-  color: rgb(255, 255, 255);
+[data-entity][data-entity="developer"] {
+  background: rgb(239, 239, 240);
+  color: rgb(38, 35, 35);
+  border: 1px solid rgb(119, 119, 220);
+  border-radius: 0.55em;
+  padding: 0.15em;
+  margin: 0px 0px 0rem 0rem;
 }
 
-[data-entity][data-entity="verb"]::after {
-  background: rgb(21, 124, 112);
+[data-entity][data-entity="developer"]::after {
+  background: rgb(119, 119, 220);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(119, 119, 220);
+}
+
+[data-entity][data-entity="company"] {
+  background: rgb(239, 239, 240);
+  color: rgb(38, 35, 35);
+  border: 1px solid rgba(151, 24, 24, 0.45);
+  border-radius: 0.55em;
+  padding: 0.15em;
+  margin: 0px 0px 0rem 0rem;
+}
+
+[data-entity][data-entity="company"]::after {
+  background: rgba(151, 24, 24, 0.45);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(119, 119, 220);
 }
 
 /* Apply different text sizes depending on screen */
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .typewriter-role-string {
     font-size: 40px;
   }
@@ -182,7 +197,7 @@
     font-size: 40px;
   }
 
-  .data-entity{
+  [data-entity][data-entity="person"]{
     font-size: 40px;
   }
 }

@@ -18,6 +18,58 @@ const Draw = () => {
         // Get the canvas and its context
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
+        // let points = [];
+        // let s = 0;
+        // animate();
+        //
+        // function drawLatestLines() {
+        //     s += 0.5;
+        //     let ss = parseInt(s);
+        //     if (s > points.length - 2) {
+        //         return;
+        //     }
+        //
+        //
+        //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+        //     ctx.beginPath();
+        //     ctx.moveTo(points[ss].x, points[ss].y);
+        //     for (let i = ss; i < points.length; i++) {
+        //         ctx.lineTo(points[i].x, points[i].y);
+        //
+        //     }
+        //     ctx.stroke();
+        // }
+        //
+        // function animate() {
+        //     requestAnimationFrame(animate);
+        //     drawLatestLines();
+        // }
+        //
+        // function clearMemory() {
+        //     console.log("Clearing memory")
+        //     points = [];
+        //     s = 0;
+        //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+        //     ctx.beginPath();
+        //     setTimeout(clearMemory,25000);
+        // }
+        //
+        // clearMemory();
+
+        // clearTimeout(clearCanvasTimeout); // Clear any existing timeout
+        // clearCanvasTimeout = setTimeout(() => {
+        //     //ctx.reset()
+        //     console.log("Clearing memory")
+        //     points = [];
+        //     s = 0;
+        //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+        //     ctx.beginPath();
+        // }, 1000);
+        // Set the drawing settings
+        //ctx.lineWidth = 0.1;
+        // ctx.lineCap = "round";
+        // ctx.strokeStyle = "#ffffff";
+        //ctx.globalAlpha = 0.1;
 
         // Add a mousemove event listener to the canvas
         canvas.addEventListener("mousemove", (e) => {
@@ -31,17 +83,22 @@ const Draw = () => {
 
             if (lastPositionRef.current) {
                 const { x, y } = lastPositionRef.current;
+                // points.push({
+                //     x: x - canvas.offsetLeft + 5,
+                //     y: y - canvas.offsetTop -50
+                // });
                 // Move the pen to the last position and draw a line to the current position
-                ctx.moveTo(x - canvas.offsetLeft, y - canvas.offsetTop);
-                ctx.lineTo(pageX - canvas.offsetLeft, pageY - canvas.offsetTop);
+                ctx.moveTo(x - canvas.offsetLeft + 5, y - canvas.offsetTop -50);
+                ctx.lineTo(pageX - canvas.offsetLeft + 5, pageY - canvas.offsetTop -50);
                 ctx.stroke();
             }
             // Clear the canvas after a 2-second timeout
             clearTimeout(clearCanvasTimeout); // Clear any existing timeout
             clearCanvasTimeout = setTimeout(() => {
-                ctx.reset()
+                //ctx.reset()
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
             }, 200);
-
 
             // Update the last position
             lastPositionRef.current = { x: pageX, y: pageY };
@@ -55,6 +112,7 @@ const Draw = () => {
             width={window.innerWidth}
             height={window.innerHeight - 100}
         />
+
     );
 };
 
