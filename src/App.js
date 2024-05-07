@@ -153,7 +153,7 @@ function App() {
                           cover={
                               <img
                                   alt="example"
-                                  src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                                  src="https://raw.githubusercontent.com/Matei9721/portofolio-website/main/src/resources/website_thumbnail.png"
                               />
                           }
                           actions={[
@@ -163,8 +163,10 @@ function App() {
                           ]}
                       >
                           <Meta
-                              title="Card title"
-                              description="This is the description"
+                              title="This website you're on"
+                              description="I tried to build as much as I could of this personal website from scratch (
+                              as much as things can be build from scratch in the software world). All the code is available
+                              in my public GitHub repository."
                           />
                       </Card>
                   </Col>
