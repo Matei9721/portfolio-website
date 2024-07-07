@@ -1,21 +1,18 @@
 import React from 'react';
 import TypeLoop from './components/TypeLoop';
 import Draw from "./components/DrawingCanvas"
-import { Layout, theme, Card, Col, Row, Avatar, FloatButton } from 'antd';
-import {EditOutlined, EllipsisOutlined, GithubOutlined, SettingOutlined} from '@ant-design/icons';
+import { Layout, Card, Col, Row, FloatButton } from 'antd';
+import {GithubOutlined, QuestionCircleOutlined} from '@ant-design/icons';
 import { ReactTerminal } from "react-terminal";
-import MyComponent from "./components/Header";
+import TypewriterHeader from "./components/TypewriterHeader";
 import WorkProjects from "./components/WorkProjects";
 
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const { Meta } = Card;
 
 function App() {
-    const {
-        token: { colorBgContainer },
-    } = theme.useToken();
 
     const commands = {
         help: (<span>
@@ -59,7 +56,7 @@ function App() {
   return (
       <Layout className="App">
 
-          {/*Nav bar Header*/}
+          {/*Nav bar Header, currently I don't store anything in it, might remove it later*/}
           <Header
               style={{
                   top: 0,
@@ -71,18 +68,16 @@ function App() {
 
               }}
           >
-
           </Header>
 
-          {/*One page layout content*/}
+          {/*One page layout content is enough for my personal website*/}
           <Content >
+              {/*Drawing canvas*/}
               <Draw />
-              {/*Name header*/}
+              {/*Landing introduction screen*/}
               <TypeLoop />
-
-
               {/* About me -- Terminal */}
-              <MyComponent title={"About me"}/>
+              <TypewriterHeader title={"About me"}/>
               <div className="terminal">
                   <ReactTerminal
                       welcomeMessage={welcomeMessage}
@@ -97,15 +92,15 @@ function App() {
                       theme="my-custom-theme"
                   />
               </div>
-              <MyComponent title={"Work Experience"}/>
+              <TypewriterHeader title={"Work Experience"}/>
               <WorkProjects/>
-              <MyComponent title={"Personal Projects"}/>
+              <TypewriterHeader title={"Personal Projects"}/>
               {/* Projects */}
               <Row style={{"marginTop": 70}} >
                   <Col flex={"auto"} style={{ display: 'flex', justifyContent: 'center' }}>
                       <Card
                           hoverable
-                          style={{"margin": 5, "width": 600}}
+                          style={{"margin": 5, "maxWidth": 600}}
                           cover={
                               <img
                                   alt="Discord Bot"
@@ -113,7 +108,9 @@ function App() {
                               />
                           }
                           actions={[
-                              <SettingOutlined key="setting" />,
+                              <a href={"https://github.com/Matei9721/js-discord-bot"} target="_blank" rel="noopener noreferrer">
+                              <GithubOutlined key="setting" /> </a>,
+                              <QuestionCircleOutlined key="setting" />,
 
                           ]}
                       >
@@ -122,12 +119,14 @@ function App() {
                               description="A JavaScript bot using the official Discord API which can play music
                               using Youtube's API. Supports queues, livestreams and keyword search. Developed with
                               my best friend so we can finally argue about code we both contribute to."
+                              style={{ width: '100%' , height:'100%'}}
+
                           />
                       </Card>
                   </Col>
                   <Col flex={"auto"} style={{ display: 'flex', justifyContent: 'center' }}>
                       <Card
-                          style={{"margin": 5, "width": 600}}
+                          style={{"margin": 5, "maxWidth": 600}}
                           cover={
                               <img
                                   alt="ID Lab Logo"
@@ -136,37 +135,41 @@ function App() {
                               />
                           }
                           actions={[
-                              <SettingOutlined key="setting" />,
-                              <EditOutlined key="edit" />,
-                              <EllipsisOutlined key="ellipsis" />,
+                              <a href={"https://github.com/osoc22/project-idlab"} target="_blank" rel="noopener noreferrer">
+                              <GithubOutlined key="setting" /> </a>,
+                              <QuestionCircleOutlined key="setting" />,
                           ]}
                       >
                           <Meta
                               title="Project IDLab - Powerful Personal Data"
-                              description="As part of a month-long Hackaton in Belgium, I have partnered up with IDLab and Imec to showcase how taking back control of your personal data can be achieved using linked data and Solid pods. We have built a smart calendar application that takes advantage of linked data to serve weather data for the events that you store on your private Solid pod."
+                              description="As part of a month-long Hackaton in Belgium, I have partnered up with IDLab
+                               and Imec to showcase how taking back control of your personal data can be achieved using
+                                linked data and Solid pods. Our final product was a linked-data connected weather app."
+                              style={{ width: '100%' , height:'100%'}}
                           />
                       </Card>
                   </Col >
                   <Col flex={"auto"} style={{ display: 'flex', justifyContent: 'center' }}>
                       <Card
-                          style={{"margin": 5, "width": 600}}
+                          style={{"margin": 5, "maxWidth": 600}}
                           cover={
                               <img
                                   alt="example"
-                                  src="https://raw.githubusercontent.com/Matei9721/portofolio-website/main/src/resources/website_thumbnail.png"
+                                  src="https://raw.githubusercontent.com/Matei9721/portofolio-website/main/src/resources/website.PNG"
+                                  style={{ width: '100%' , height:"375px"}}
                               />
                           }
                           actions={[
-                              <SettingOutlined key="setting" />,
-                              <EditOutlined key="edit" />,
-                              <EllipsisOutlined key="ellipsis" />,
+                              <a href={"https://github.com/Matei9721/portofolio-website"} target="_blank" rel="noopener noreferrer">
+                              <GithubOutlined key="setting" /> </a>,
+                              <QuestionCircleOutlined key="setting" />,
                           ]}
                       >
                           <Meta
-                              title="This website you're on"
-                              description="I tried to build as much as I could of this personal website from scratch (
-                              as much as things can be build from scratch in the software world). All the code is available
-                              in my public GitHub repository."
+                              title="This website you're currently on"
+                              description="To brush up my JavaScript skills, I built this personal website using the
+                               dynamic duo of React and Ant Design. I 'borrowed' ideas from the internet and gave them
+                                my own quirky twist. Check out the code antics on GitHub!"
                           />
                       </Card>
                   </Col>

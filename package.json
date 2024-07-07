@@ -1,7 +1,7 @@
 {
-  "name": "portfolio-website",
+  "name": "portflio-website",
   "version": "0.1.0",
-  "homepage": "https://matei9721.github.io/portofolio-website/",
+  "homepage": "https://matei9721.github.io/portfolio-website/",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.1.0",
