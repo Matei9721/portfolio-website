@@ -33,7 +33,4 @@ jobs:
       - name: Build React App
         run: |
           export CI=false
-          npm run deploy -- -m "${{ github.event.inputs.deploy_message }}"
-
-      - name: Print deployment message
-        run: echo "Deployment Message: ${{ github.event.inputs.deploy_message }}"
+          npm run deploy -- -m "${{ github.event.inputs.deploy_message }}"  
