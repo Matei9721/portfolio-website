@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Typewriter from 'typewriter-effect';
 import useSound from 'use-sound';
+import ReactGA from 'react-ga4';
 import {GithubOutlined, LinkedinOutlined, FilePdfOutlined} from '@ant-design/icons';
 
 // CSS imports
@@ -14,6 +15,8 @@ const TypeLoop = () => {
 
     // Add timer to reset typing animation
     useEffect(() => {
+        ReactGA.initialize('G-645W9NXVRJ');
+
         const timeoutId = setTimeout(() => {
             setStartTyping(true);
         }, 2900); // 2.9 seconds delay
@@ -78,7 +81,12 @@ const TypeLoop = () => {
         <LinkedinOutlined style={{fontSize: '64px', paddingRight: 15}}/>
       </a>
 
-                <a href={"https://drive.google.com/uc?id=1qVG1OtJsJgdzWsN4y9vVT18Rmo3XezKz&export=download"}>
+                <a href={"https://drive.google.com/uc?id=1qVG1OtJsJgdzWsN4y9vVT18Rmo3XezKz&export=download"}
+                   onClick={() => ReactGA.event({
+                       category: 'Social Links',
+                       action: 'Click',
+                       label: "CV",
+                   })}>
         <FilePdfOutlined style={{fontSize: '64px',}}/>
       </a>
             </span>

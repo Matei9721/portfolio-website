@@ -13,15 +13,15 @@ const items = [
             <Timeline
                 items={[
                     {
-                        children: 'Created multiple GenAI POCs (retrieval, RAG, image processing), experimenting with' +
-                            ' prompting strategies and different language models (local and proprietary, and building' +
+                        children: 'Created multiple GenAI POCs (RAG, image processing, agents), experimenting with' +
+                            ' prompting strategies and different language models (local and proprietary), and building' +
                             ' full-stack applications with user interfaces. These POCs helped business and content' +
                             ' experts experiment and create new product flows.',
                     },
                     {
                         children: <>
                             Developed and planned information extraction pipelines: created rule-based and
-                            deep-learning models (transformer-based) and deployed them in production-ready
+                            deep-learning models (transformer-based/BERT) and deployed them in production-ready
                             environments (AWS). The extraction pipelines have been integrated into
                             <a href="https://www.elsevier.com/products/embiology"> Embiology</a> and improved results of
                             the previous solution by 40% in precision.
@@ -115,7 +115,9 @@ const items = [
             /></div>,
     }
 ];
-const WorkProjects = () => <Card style={{background: "white", "margin": 25, "min-height": 300}}><Tabs
+const WorkProjects = () => <Card style={{background: "white", "margin": 25, minHeight: 270}}>
+    <Tabs
     defaultActiveKey="1" size={"small"} style={{margin: -20}} items={items} onChange={onChange}
-    tabPosition={"left"}/></Card>
+    tabPosition={"left"}/>
+</Card>
 export default WorkProjects;
