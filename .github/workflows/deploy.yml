@@ -9,7 +9,7 @@ on:
         default: "Deploying latest changes"
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
