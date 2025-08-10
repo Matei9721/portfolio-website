@@ -81,7 +81,7 @@ const TypeLoop = () => {
         <LinkedinOutlined style={{fontSize: '64px', paddingRight: 15}}/>
       </a>
 
-                <a href={"https://drive.google.com/uc?id=1qVG1OtJsJgdzWsN4y9vVT18Rmo3XezKz&export=download"}
+                <a href={"https://drive.google.com/uc?id=1PkFNgiAtsiT0sTWurVpcqrFWsyTM7pn-&export=download"}
                    onClick={() => ReactGA.event({
                        category: 'Social Links',
                        action: 'Click',
