@@ -42,7 +42,8 @@ const TypeLoop = () => {
     return (
         <div className="centered-container">
             {/*When clicking the text, the sound plays, but because of a bug, works only when clicking the name.*/}
-            <div onClick={play}>
+            <div data-testid="hero-intro" onClick={play}>
+                <span className="visually-hidden">Hello there, my name is Matei Penca.</span>
                 <Typewriter onClick={play}
                             onInit={(typewriter) => {
                                 typewriter
@@ -59,35 +60,38 @@ const TypeLoop = () => {
                             }}
                 />
             </div>
-            {startTyping && (
-                <Typewriter
-                    options={{
-                        strings: roles,
-                        autoStart: true,
-                        loop: true,
-                        pauseFor: 900,
-                        delay: 75,
-                        cursor: '<span class="typewriter-cursor"></span>',
-                    }}
-                />
-            )}
+            <div data-testid="hero-roles">
+                <span className="visually-hidden">Data Scientist. Software Engineer.</span>
+                {startTyping && (
+                    <Typewriter
+                        options={{
+                            strings: roles,
+                            autoStart: true,
+                            loop: true,
+                            pauseFor: 900,
+                            delay: 75,
+                            cursor: '<span class="typewriter-cursor"></span>',
+                        }}
+                    />
+                )}
+            </div>
 
             <span style={{position: "absolute", zIndex: 2, bottom: 40}}>
-                <a href={"https://github.com/Matei9721"} target="_blank" rel="noopener noreferrer">
-        <GithubOutlined style={{fontSize: '64px', paddingRight: 15}}/>
+                <a aria-label="Matei Penca on GitHub" href={"https://github.com/Matei9721"} target="_blank" rel="noopener noreferrer">
+        <GithubOutlined aria-hidden="true" style={{fontSize: '64px', paddingRight: 15}}/>
       </a>
 
-                <a href={"https://www.linkedin.com/in/matei-penca/"} target="_blank" rel="noopener noreferrer">
-        <LinkedinOutlined style={{fontSize: '64px', paddingRight: 15}}/>
+                <a aria-label="Matei Penca on LinkedIn" href={"https://www.linkedin.com/in/matei-penca/"} target="_blank" rel="noopener noreferrer">
+        <LinkedinOutlined aria-hidden="true" style={{fontSize: '64px', paddingRight: 15}}/>
       </a>
 
-                <a href={"https://drive.google.com/uc?id=1PkFNgiAtsiT0sTWurVpcqrFWsyTM7pn-&export=download"}
+                <a aria-label="Download Matei Penca's CV" href={"https://drive.google.com/uc?id=1PkFNgiAtsiT0sTWurVpcqrFWsyTM7pn-&export=download"}
                    onClick={() => ReactGA.event({
                        category: 'Social Links',
                        action: 'Click',
                        label: "CV",
                    })}>
-        <FilePdfOutlined style={{fontSize: '64px',}}/>
+        <FilePdfOutlined aria-hidden="true" style={{fontSize: '64px',}}/>
       </a>
             </span>
 
