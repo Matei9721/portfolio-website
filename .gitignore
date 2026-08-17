@@ -26,3 +26,5 @@ yarn-debug.log*
 yarn-error.log*
 CV_Penca_Matei.pdf
 .idea/.name
+
+./tasks
