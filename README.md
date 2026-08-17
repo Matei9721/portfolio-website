@@ -28,3 +28,35 @@ Ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/) (v12 or higher)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+## Local verification
+
+Install the locked dependencies once:
+
+```bash
+npm ci
+```
+
+Run the regression suite without watch mode:
+
+```bash
+npm run test:ci
+```
+
+Create the production bundle with the non-interactive build check:
+
+```bash
+npm run build:check
+```
+
+Preview the development site locally:
+
+```bash
+npm start
+```
+
+Preview the built production bundle locally after `npm run build:check`:
+
+```bash
+npx --yes serve -s build
+```

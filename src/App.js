@@ -24,14 +24,6 @@ function App() {
         ReactGA.send({ hitType: "pageview", page: "/portfolio-website", title: "Landing Page" });
     }, [])
 
-    const handleClick = (platform) => {
-        ReactGA.event({
-            category: 'Social Links',
-            action: 'Click',
-            label: platform,
-        });
-    };
-
     const commands = {
         help: (<span>
         <strong>whoami</strong> - Who am I? <br />
@@ -59,21 +51,21 @@ function App() {
         spotify: <span> <br/> Here are 3 of my favourite songs I listed on repeat. As you can tell I like to listen to many genres and many languages,
             I hope one of these songs will be on your liking :)  <br/> <br/> <AudioPlayer  playList={[
             {
-                name: <a target="_blank" href="https://www.youtube.com/watch?v=EqdM24AJb3Q">Bleach 🔗</a>,
+                name: <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=EqdM24AJb3Q">Bleach 🔗</a>,
                 writer: 'Anatu',
                 img: 'https://i.scdn.co/image/ab67616d00001e0280df66933577254e0ec78868',
                 src: 'https://p.scdn.co/mp3-preview/0988f434a22698bbc4b66d4cc8ef2f011c1a013f?cid=cfe923b2d660439caf2b557b21f31221',
                 id: 1,
             },
             {
-                name: <a target="_blank" href="https://www.youtube.com/watch?v=zUqxUSuCoQQ">Interstelar 🔗</a>,
+                name: <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=zUqxUSuCoQQ">Interstelar 🔗</a>,
                 writer: 'Alexia',
                 img: 'https://i.scdn.co/image/ab67616d0000b2738da174a5a172967f23a7cac6',
                 src: 'https://p.scdn.co/mp3-preview/132aafd543baa27b13249b14e8def5e94ce29caa?cid=cfe923b2d660439caf2b557b21f31221',
                 id: 2,
             },
             {
-                name: <a target="_blank" href="https://www.youtube.com/watch?v=oJ492O5Z1f4">Candy Thief 🔗</a>,
+                name: <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=oJ492O5Z1f4">Candy Thief 🔗</a>,
                 writer: 'Beatpella',
                 img: 'https://i.scdn.co/image/ab67616d0000b273bb0001514868a3156783bcd8',
                 src: 'https://p.scdn.co/mp3-preview/140113f7c2cceee9c60d105fec8ac5b57a2a2318?cid=cfe923b2d660439caf2b557b21f31221',
@@ -167,8 +159,8 @@ function App() {
                               />
                           }
                           actions={[
-                              <a href={"https://github.com/Matei9721/ai-search-engine"} target="_blank" rel="noopener noreferrer">
-                                  <GithubOutlined key="setting" /> </a>,
+                              <a aria-label="View GenAI ChatBot Assistant on GitHub" href={"https://github.com/Matei9721/ai-search-engine"} target="_blank" rel="noopener noreferrer">
+                                  <GithubOutlined aria-hidden="true" key="setting" /> </a>,
                               <QuestionCircleOutlined key="setting" />,
                           ]}
                       >
@@ -192,8 +184,8 @@ function App() {
                               />
                           }
                           actions={[
-                              <a href={"https://github.com/osoc22/project-idlab"} target="_blank" rel="noopener noreferrer">
-                              <GithubOutlined key="setting" /> </a>,
+                              <a aria-label="View Project IDLab on GitHub" href={"https://github.com/osoc22/project-idlab"} target="_blank" rel="noopener noreferrer">
+                              <GithubOutlined aria-hidden="true" key="setting" /> </a>,
                               <QuestionCircleOutlined key="setting" />,
                           ]}
                       >
@@ -218,8 +210,8 @@ function App() {
                               />
                           }
                           actions={[
-                              <a href={"https://github.com/Matei9721/portofolio-website"} target="_blank" rel="noopener noreferrer">
-                              <GithubOutlined key="setting" /> </a>,
+                              <a aria-label="View this portfolio on GitHub" href={"https://github.com/Matei9721/portofolio-website"} target="_blank" rel="noopener noreferrer">
+                              <GithubOutlined aria-hidden="true" key="setting" /> </a>,
                               <QuestionCircleOutlined key="setting" />,
                           ]}
                       >
@@ -242,8 +234,8 @@ function App() {
                               />
                           }
                           actions={[
-                              <a href={"https://github.com/Matei9721/js-discord-bot"} target="_blank" rel="noopener noreferrer">
-                                  <GithubOutlined key="setting" /> </a>,
+                              <a aria-label="View Discord Javascript bot on GitHub" href={"https://github.com/Matei9721/js-discord-bot"} target="_blank" rel="noopener noreferrer">
+                                  <GithubOutlined aria-hidden="true" key="setting" /> </a>,
                               <QuestionCircleOutlined key="setting" />,
 
                           ]}

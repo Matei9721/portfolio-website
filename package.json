@@ -31,7 +31,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "test:ci": "react-scripts test --watchAll=false --runInBand",
     "build": "react-scripts build",
+    "build:check": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
