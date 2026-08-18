@@ -69,3 +69,10 @@ npm run preview
 ```
 
 The Vite base path is configured for GitHub Pages at `/portfolio-website/`.
+
+## Deployment
+
+GitHub Pages deployment is handled by `.github/workflows/deploy.yml`. A push to
+`main` runs the tests and production build, uploads the generated `dist/`
+artifact, and deploys it through the official GitHub Pages actions. The
+workflow can also be started manually from the Actions tab.
