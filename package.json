@@ -7,7 +7,7 @@
     "@ant-design/icons": "^5.6.1",
     "antd": "^5.29.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react-dom": "^19.2.8",
     "react-ga4": "^2.1.0",
     "react-intersection-observer": "^9.16.0",
     "react-modern-audio-player": "^1.4.0-rc.2",
