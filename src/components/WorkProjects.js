@@ -118,6 +118,6 @@ const items = [
 const WorkProjects = () => <Card style={{background: "white", "margin": 25, minHeight: 270}}>
     <Tabs
     defaultActiveKey="1" size={"small"} style={{margin: -20}} items={items} onChange={onChange}
-    tabPosition={"left"}/>
+    tabPosition={"left"} more={{icon: <span>More work experiences</span>}}/>
 </Card>
 export default WorkProjects;
