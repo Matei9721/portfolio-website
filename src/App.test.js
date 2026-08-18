@@ -47,6 +47,14 @@ test('renders the current portfolio', () => {
   expect(screen.getByText(/use this/i)).toBeInTheDocument();
 });
 
+test('preserves the welcome message role phrase', () => {
+  renderPortfolio();
+
+  expect(screen.getByTestId('terminal')).toHaveTextContent(
+    /I've been working as a\s+Software Engineer\s+and\s+Data Scientist\s+where I've build/i,
+  );
+});
+
 test('exposes hero name and roles without waiting for the typewriter animation', () => {
   renderPortfolio();
 

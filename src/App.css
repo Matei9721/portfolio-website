@@ -3,6 +3,23 @@
   background-color: #272822; /* Background color */
 }
 
+.site-header {
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #272822;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F8F8F2FF;
+  margin: 25px;
+}
+
 .pageTitle {
   color: blue;
   font-size: 36px;
@@ -25,6 +42,59 @@
   margin-left: 25px;
   margin-right: 25px;
   height: 35em;
+}
+
+.experience-card {
+  background: white;
+  margin: 25px;
+  min-height: 270px;
+}
+
+.experience-tabs {
+  margin: -20px;
+}
+
+.projects-grid {
+  margin-top: 70px;
+}
+
+.project-column {
+  display: flex;
+  justify-content: center;
+}
+
+.project-card {
+  margin: 5px;
+  max-width: 450px;
+  width: calc(100% - 10px);
+}
+
+.project-card__image {
+  width: 100%;
+}
+
+.project-card__image--standard {
+  width: 100%;
+  height: 275px;
+}
+
+.project-card__image--portfolio {
+  width: 100%;
+  height: 300px;
+}
+
+.social-links {
+  position: absolute;
+  z-index: 2;
+  bottom: 40px;
+}
+
+.social-link--hero .anticon {
+  font-size: 64px;
+}
+
+.social-link--hero:not(:last-child) .anticon {
+  padding-right: 15px;
 }
 
 .centered-container {
@@ -220,4 +290,3 @@
     padding-top: 15vh;
   }
 }
-

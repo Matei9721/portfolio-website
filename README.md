@@ -70,6 +70,13 @@ npm run preview
 
 The Vite base path is configured for GitHub Pages at `/portfolio-website/`.
 
+## Content architecture
+
+Portfolio copy and links live in `src/content/`, while reusable presentation
+components live in `src/components/`. `App.js` composes the page sections;
+`TerminalSection` owns terminal interaction, and the project and work
+experience sections render from their corresponding content modules.
+
 ## Deployment
 
 GitHub Pages deployment is handled by `.github/workflows/deploy.yml`. A push to
