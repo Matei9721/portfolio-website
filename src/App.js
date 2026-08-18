@@ -91,7 +91,7 @@ function App() {
 
     const welcomeMessage = (
         <span>
-      >>> My day to day work revolves around turning cool ideas to real-world solutions powered by artificial intelligence.
+      {'>>>'} My day to day work revolves around turning cool ideas to real-world solutions powered by artificial intelligence.
             I've been working as a <span data-entity="role">Software Engineer </span> and <span data-entity="role">Data Scientist </span>
             &nbsp;where I've build A.I. application in different
             domains and companies. Right now I am learning and building GenAI software, deep learning powered
