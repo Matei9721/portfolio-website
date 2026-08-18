@@ -3,6 +3,7 @@ import Typewriter from 'typewriter-effect';
 import useSound from 'use-sound';
 import ReactGA from 'react-ga4';
 import {GithubOutlined, LinkedinOutlined, FilePdfOutlined} from '@ant-design/icons';
+import SocialLink from './SocialLink';
 
 // CSS imports
 import '../App.css';
@@ -76,23 +77,30 @@ const TypeLoop = () => {
                 )}
             </div>
 
-            <span style={{position: "absolute", zIndex: 2, bottom: 40}}>
-                <a aria-label="Matei Penca on GitHub" href={"https://github.com/Matei9721"} target="_blank" rel="noopener noreferrer">
-        <GithubOutlined aria-hidden="true" style={{fontSize: '64px', paddingRight: 15}}/>
-      </a>
-
-                <a aria-label="Matei Penca on LinkedIn" href={"https://www.linkedin.com/in/matei-penca/"} target="_blank" rel="noopener noreferrer">
-        <LinkedinOutlined aria-hidden="true" style={{fontSize: '64px', paddingRight: 15}}/>
-      </a>
-
-                <a aria-label="Download Matei Penca's CV" href={"https://drive.google.com/uc?id=1PkFNgiAtsiT0sTWurVpcqrFWsyTM7pn-&export=download"}
-                   onClick={() => ReactGA.event({
-                       category: 'Social Links',
-                       action: 'Click',
-                       label: "CV",
-                   })}>
-        <FilePdfOutlined aria-hidden="true" style={{fontSize: '64px',}}/>
-      </a>
+            <span className="social-links">
+                <SocialLink
+                    className="social-link--hero"
+                    href="https://github.com/Matei9721"
+                    icon={<GithubOutlined aria-hidden="true" />}
+                    label="Matei Penca on GitHub"
+                />
+                <SocialLink
+                    className="social-link--hero"
+                    href="https://www.linkedin.com/in/matei-penca/"
+                    icon={<LinkedinOutlined aria-hidden="true" />}
+                    label="Matei Penca on LinkedIn"
+                />
+                <SocialLink
+                    className="social-link--hero"
+                    href="https://drive.google.com/uc?id=1PkFNgiAtsiT0sTWurVpcqrFWsyTM7pn-&export=download"
+                    icon={<FilePdfOutlined aria-hidden="true" />}
+                    label="Download Matei Penca's CV"
+                    onClick={() => ReactGA.event({
+                        category: 'Social Links',
+                        action: 'Click',
+                        label: 'CV',
+                    })}
+                />
             </span>
 
         </div>
