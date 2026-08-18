@@ -6,7 +6,6 @@ import {
   waitFor,
   within,
 } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
 import { TerminalContextProvider } from 'react-terminal';
 
 jest.mock('react-modern-audio-player', () => function MockAudioPlayer({ playList = [] }) {
@@ -24,11 +23,9 @@ jest.mock('./components/DrawingCanvas', () => function MockDrawingCanvas() {
 import App from './App';
 
 const renderPortfolio = () => render(
-  <BrowserRouter>
-    <TerminalContextProvider>
-      <App />
-    </TerminalContextProvider>
-  </BrowserRouter>,
+  <TerminalContextProvider>
+    <App />
+  </TerminalContextProvider>,
 );
 
 const runTerminalCommand = (command) => {
