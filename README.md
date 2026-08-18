@@ -1,6 +1,6 @@
 # My Personal/Portfolio Website ⭐
 
-This is the source code for my personal website, built using **React**, **Ant Design**, and a **typewriter** library to create an interactive and dynamic feel. The website is hosted on **GitHub Pages** and serves as my online portfolio, showcasing my skills as a Data Scientist and Software Engineer.
+This is the source code for my personal website, built using **React**, **Vite**, **Ant Design**, and a **typewriter** library to create an interactive and dynamic feel. The website is hosted on **GitHub Pages** and serves as my online portfolio, showcasing my skills as a Data Scientist and Software Engineer.
 
 ## Demo
 
@@ -9,6 +9,7 @@ Check out the live version of my website [here](https://matei9721.github.io/port
 ## Technologies Used
 
 - **React**: A JavaScript library for building user interfaces.
+- **Vite**: Development server and production build tool.
 - **Ant Design**: A popular UI framework for React to build clean and responsive components.
 - **Typewriter Effect Library**: A library to give cool typing effects for text (`react-typewriter-effect`).
 - **GitHub Pages**: Hosting service for the website.
@@ -26,7 +27,7 @@ Check out the live version of my website [here](https://matei9721.github.io/port
 
 Ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v12 or higher)
+- [Node.js](https://nodejs.org/) (v18 or higher; see `.nvmrc`)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
 ## Local verification
@@ -43,20 +44,28 @@ Run the regression suite without watch mode:
 npm run test:ci
 ```
 
+Run the combined pre-commit check (tests and production build):
+
+```bash
+npm run check
+```
+
 Create the production bundle with the non-interactive build check:
 
 ```bash
 npm run build:check
 ```
 
-Preview the development site locally:
+Start the Vite development server locally:
 
 ```bash
-npm start
+npm run dev
 ```
 
 Preview the built production bundle locally after `npm run build:check`:
 
 ```bash
-npx --yes serve -s build
+npm run preview
 ```
+
+The Vite base path is configured for GitHub Pages at `/portfolio-website/`.

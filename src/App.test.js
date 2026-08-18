@@ -8,17 +8,21 @@ import {
 } from '@testing-library/react';
 import { TerminalContextProvider } from 'react-terminal';
 
-jest.mock('react-modern-audio-player', () => function MockAudioPlayer({ playList = [] }) {
-  return (
-    <div data-testid="audio-player">
-      {playList.map(({ id, name }) => <span key={id}>{name}</span>)}
-    </div>
-  );
-});
+vi.mock('react-modern-audio-player', () => ({
+  default: function MockAudioPlayer({ playList = [] }) {
+    return (
+      <div data-testid="audio-player">
+        {playList.map(({ id, name }) => <span key={id}>{name}</span>)}
+      </div>
+    );
+  },
+}));
 
-jest.mock('./components/DrawingCanvas', () => function MockDrawingCanvas() {
-  return null;
-});
+vi.mock('./components/DrawingCanvas', () => ({
+  default: function MockDrawingCanvas() {
+    return null;
+  },
+}));
 
 import App from './App';
 

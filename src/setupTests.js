@@ -3,11 +3,12 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+import { vi } from 'vitest';
 
 window.matchMedia = window.matchMedia || (() => ({
   matches: false,
-  addListener: jest.fn(),
-  removeListener: jest.fn(),
+  addListener: vi.fn(),
+  removeListener: vi.fn(),
 }));
 
 global.IntersectionObserver = class IntersectionObserver {
@@ -18,11 +19,11 @@ global.IntersectionObserver = class IntersectionObserver {
 
 Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
   configurable: true,
-  value: jest.fn(() => ({
-    beginPath: jest.fn(),
-    clearRect: jest.fn(),
-    lineTo: jest.fn(),
-    moveTo: jest.fn(),
-    stroke: jest.fn(),
+  value: vi.fn(() => ({
+    beginPath: vi.fn(),
+    clearRect: vi.fn(),
+    lineTo: vi.fn(),
+    moveTo: vi.fn(),
+    stroke: vi.fn(),
   })),
 });
