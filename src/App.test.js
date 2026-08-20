@@ -98,6 +98,9 @@ describe('terminal commands', () => {
 test('contains every work-experience entry and its representative content', () => {
   renderPortfolio();
 
+  expect(screen.getByRole('tablist'))
+    .toHaveAttribute('aria-orientation', 'horizontal');
+
   const entries = [
     ['Elsevier', /information extraction pipelines/i],
     ['Syntho', /PII \(Personally identifiable information\)/i],
@@ -112,7 +115,7 @@ test('contains every work-experience entry and its representative content', () =
 });
 
 test('contains every project GitHub link', () => {
-  renderPortfolio();
+  const { container } = renderPortfolio();
 
   const projectLinks = [
     ['View GenAI ChatBot Assistant on GitHub', 'https://github.com/Matei9721/ai-search-engine'],
@@ -124,6 +127,12 @@ test('contains every project GitHub link', () => {
   projectLinks.forEach(([name, href]) => {
     expect(screen.getByRole('link', { name })).toHaveAttribute('href', href);
   });
+
+  const projectGrid = container.querySelector('.projects-grid');
+  expect(projectGrid).toBeInTheDocument();
+  expect(projectGrid.children).toHaveLength(projectLinks.length);
+  expect([...projectGrid.children].every((child) => child.classList.contains('project-column')))
+    .toBe(true);
 });
 
 test('does not render unnamed links or buttons', () => {
