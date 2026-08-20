@@ -24,15 +24,28 @@ const Draw = () => {
         ctx.strokeStyle = "#ffffff";
         ctx.globalAlpha = 0.1;
 
-        // Add a mousemove event listener to the canvas
-        canvas.addEventListener("mousemove", (e) => {
-            const { pageX, pageY } = e;
+        const handleMouseMove = (event) => {
+            const bounds = canvas.getBoundingClientRect();
+            const isInsideCanvas = event.clientX >= bounds.left
+                && event.clientX <= bounds.right
+                && event.clientY >= bounds.top
+                && event.clientY <= bounds.bottom;
+
+            if (!isInsideCanvas) {
+                lastPositionRef.current = null;
+                return;
+            }
+
+            const currentPosition = {
+                x: event.clientX - bounds.left,
+                y: event.clientY - bounds.top,
+            };
 
             if (lastPositionRef.current) {
                 const { x, y } = lastPositionRef.current;
                 // Move the pen to the last position and draw a line to the current position
-                ctx.moveTo(x - canvas.offsetLeft + 5, y - canvas.offsetTop -50);
-                ctx.lineTo(pageX - canvas.offsetLeft + 5, pageY - canvas.offsetTop -50);
+                ctx.moveTo(x, y);
+                ctx.lineTo(currentPosition.x, currentPosition.y);
                 ctx.stroke();
             }
             // Clear the canvas after a 2-second timeout when there is no activity (mouse no longer moves)
@@ -43,14 +56,22 @@ const Draw = () => {
             }, 200);
 
             // Update the last position
-            lastPositionRef.current = { x: pageX, y: pageY };
-        });
+            lastPositionRef.current = currentPosition;
+        };
+
+        // Listen on the window so the visual canvas never blocks links or hero interactions.
+        window.addEventListener("mousemove", handleMouseMove);
+
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+            clearTimeout(clearCanvasTimeout.current);
+        };
     }, []); // Empty dependency array ensures this effect runs only once
 
     return (
         <canvas
             ref={canvasRef}
-            style={{ position: "absolute", width: "100%", height: "100%" }}
+            style={{ position: "absolute", width: "100%", height: "100%", pointerEvents: "none" }}
             width={window.innerWidth}
             height={window.innerHeight - 100}
         />

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import ReactGA from 'react-ga4';
-import {Col, FloatButton, Layout, Row} from 'antd';
+import {FloatButton, Layout} from 'antd';
 
 import Draw from './components/DrawingCanvas';
 import ProjectCard from './components/ProjectCard';
@@ -36,13 +36,13 @@ function App() {
                 <WorkProjects />
                 <SectionHeading title="Personal Projects" />
                 {/* Projects */}
-                <Row className="projects-grid">
+                <div className="projects-grid">
                     {personalProjects.map((project) => (
-                        <Col className="project-column" flex="auto" key={project.id}>
+                        <div className="project-column" key={project.id}>
                             <ProjectCard project={project} />
-                        </Col>
+                        </div>
                     ))}
-                </Row>
+                </div>
             </Content>
 
             {/*Go Back to the Top*/}
