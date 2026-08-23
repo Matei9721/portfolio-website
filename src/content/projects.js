@@ -1,60 +1,38 @@
 export const personalProjects = [
     {
-        id: 'genai-chatbot-assistant',
-        title: 'GenAI ChatBot Assistant that can surf the web',
-        description: 'This project is a Generative AI (GenAI) application that leverages LangGraph\n' +
-            'to build an agent-driven Retrieval-Augmented Generation (RAG) system. The application\n' +
-            'integrates an open-source web search engine to search for real-time information to\n' +
-            'answer user queries.',
-        image: {
-            src: 'https://i.ibb.co/Bc4ScZY/DALL-E-2024-09-15-21-30-34-A-super-simplistic-and-cute-design-for-a-Gen-AI-application-thumbnail-Sho.webp',
-            alt: 'example',
-            className: 'project-card__image--standard',
-        },
-        githubUrl: 'https://github.com/Matei9721/ai-search-engine',
-        githubLabel: 'View GenAI ChatBot Assistant on GitHub',
+        id: 'beer-run-jpn',
+        title: 'BeerRunJPN',
+        description: 'A drink tracker I made for a trip to Japan. It runs on a Raspberry Pi and has a shared leaderboard, a map, and a mobile-first interface.',
+        repoName: 'Matei9721/beer-run-jpn',
+        githubUrl: 'https://github.com/Matei9721/beer-run-jpn',
+        githubLabel: 'View BeerRunJPN on GitHub',
+        tags: ['FastAPI', 'SQLite', 'Leaflet'],
     },
     {
-        id: 'project-idlab',
-        title: 'Project IDLab - Powerful Personal Data',
-        description: 'As part of a month-long Hackaton in Belgium, I have partnered up with IDLab\n' +
-            'and Imec to showcase how taking back control of your personal data can be achieved using\n' +
-            'linked data and Solid pods. Our final product was a linked-data connected weather app.',
-        image: {
-            src: 'https://raw.githubusercontent.com/osoc22/project-idlab/049fd122bdbf4d9426c90bcb5d1dc244c5c5f8f1/docs/assets/powerful-personal-data-crest.svg',
-            alt: 'ID Lab Logo',
-            className: 'project-card__image--standard',
-        },
-        githubUrl: 'https://github.com/osoc22/project-idlab',
-        githubLabel: 'View Project IDLab on GitHub',
+        id: 'cs-tracker',
+        title: 'Romanian CS Forces',
+        description: 'A Counter-Strike 2 dashboard for three Romanian friends. It reads our Leetify history, calculates the trio’s record, and includes a shared map vote.',
+        repoName: 'Matei9721/cs-tracker',
+        githubUrl: 'https://github.com/Matei9721/cs-tracker',
+        githubLabel: 'View Romanian CS Forces on GitHub',
+        tags: ['JavaScript', 'Leetify API', 'Supabase'],
     },
     {
-        id: 'portfolio-website',
-        title: "This website you're currently on",
-        description: "To brush up my JavaScript skills, I built this personal website using the\n" +
-            "dynamic duo of React and Ant Design. I 'borrowed' ideas from the internet and gave them\n" +
-            'my own quirky twist. Check out the code antics on GitHub!',
-        image: {
-            src: 'https://raw.githubusercontent.com/Matei9721/portofolio-website/main/src/resources/website.PNG',
-            alt: 'example',
-            className: 'project-card__image--portfolio',
-        },
-        githubUrl: 'https://github.com/Matei9721/portofolio-website',
-        githubLabel: 'View this portfolio on GitHub',
+        id: 'ashfall-dnd',
+        title: 'Ashfall DM control room',
+        description: 'I am a bad D&D DM, so I made a small control room to help me run my own campaign at the table.',
+        repoName: 'Matei9721/ashfall-dnd',
+        githubUrl: 'https://github.com/Matei9721/ashfall-dnd',
+        githubLabel: 'View Ashfall DM control room on GitHub',
+        tags: ['HTML', 'CSS', 'JavaScript'],
     },
     {
-        id: 'discord-javascript-bot',
-        title: 'Discord Javascript bot',
-        description: "A JavaScript bot using the official Discord API which can play music\n" +
-            "using Youtube's API. Supports queues, livestreams and keyword search. Developed with\n" +
-            'my best friend so we can finally argue about code we both contribute to.',
-        image: {
-            src: 'https://github-production-user-asset-6210df.s3.amazonaws.com/60573633/275339002-7f07be17-1655-4d2e-ae96-d1d21b099235.PNG',
-            alt: 'Discord Bot',
-            className: 'project-card__image--discord',
-        },
-        githubUrl: 'https://github.com/Matei9721/js-discord-bot',
-        githubLabel: 'View Discord Javascript bot on GitHub',
-        hoverable: true,
+        id: 'anime-recommender',
+        title: 'Anime recommender',
+        description: 'I like watching anime. I do machine learning for work. Combining the two seemed like a fun learning project.',
+        repoName: 'Matei9721/anime-recommender',
+        githubUrl: 'https://github.com/Matei9721/anime-recommender',
+        githubLabel: 'View Anime recommender on GitHub',
+        tags: ['Anime', 'Recommendations', 'Learning project'],
     },
 ];

@@ -9,6 +9,14 @@ export default defineConfig({
     include: /src\/.*\.js$/,
     exclude: [],
   },
+  optimizeDeps: {
+    entries: ['index.html'],
+    esbuildOptions: {
+      loader: {
+        '.js': 'jsx',
+      },
+    },
+  },
   test: {
     environment: 'jsdom',
     setupFiles: './src/setupTests.js',
