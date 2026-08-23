@@ -5,116 +5,88 @@ export const workExperience = [
     {
         id: 'elsevier',
         company: 'Elsevier',
-        role: 'Natural Language Processing Data Scientist',
+        period: '2023 — now',
+        role: 'Senior Data Scientist',
+        progression: [
+            {role: 'Senior Data Scientist', period: '2025 — now'},
+            {role: 'Data Scientist III', period: '2024 — 2025'},
+            {role: 'Data Scientist II', period: '2023 — 2024'},
+            {role: 'Data Science Intern', period: '2023'},
+        ],
         highlights: [
             {
-                id: 'genai-pocs',
-                segments: [text('Created multiple GenAI POCs (RAG, image processing, agents), experimenting' +
-                    ' prompting strategies and different language models (local and proprietary), and building' +
-                    ' full-stack applications with user interfaces. These POCs helped business and content' +
-                    ' experts experiment and create new product flows.')],
+                id: 'multi-agent-research',
+                segments: [text('Led the design and delivery of a cross-portfolio deep-research assistant that uses planning, reasoning, and research agents across multiple Elsevier solutions to accelerate scientific discovery with generative AI.')],
+            },
+            {
+                id: 'embase-ai',
+                segments: [
+                    text('Helped shape and build'),
+                    link(' EmbaseAI', 'https://www.elsevier.com/products/embase/embase-ai'),
+                    text(', a natural-language search assistant that simplified complex queries, increased user engagement, and supported a 20% uplift in reselling.'),
+                ],
+            },
+            {
+                id: 'rag-chat-products',
+                segments: [
+                    text('Implemented RAG enhancements with in-house fine-tuned models and launched conversational interfaces for'),
+                    link(' ReaxysAI', 'https://www.elsevier.com/about/press-releases/elsevier-introduces-reaxys-ai-search-enabling-faster-and-more-accessible'),
+                    text(' and'),
+                    link(' PharmapendiumAI', 'https://www.elsevier.com/products/pharmapendium/pharmapendium-ai'),
+                    text(', improving the search experience and boosting user retention by more than 30%.'),
+                ],
             },
             {
                 id: 'information-extraction',
                 segments: [
-                    text('Developed and planned information extraction pipelines: created rule-based and ' +
-                        'deep-learning models (transformer-based/BERT) and deployed them in production-ready ' +
-                        'environments (AWS). The extraction pipelines have been integrated into'),
+                    text('Planned and developed production information-extraction pipelines using rule-based and transformer/BERT models on AWS. Integrated into'),
                     link(' Embiology', 'https://www.elsevier.com/products/embiology'),
-                    text(' and improved results of the previous solution by 40% in precision.'),
+                    text(', the pipeline improved precision by about 40% over the previous solution and processes millions of documents annually.'),
                 ],
             },
-            {
-                id: 'llm-evaluation',
-                segments: [text('Developed an in-house automatic evaluation (supporting local and commercial LLMs)' +
-                    ' framework for Retrieval and Generative AI (RAG) applications. (Implemented LLM evaluation' +
-                    ' as CI/CD pipelines, significantly reducing manual labour and streamlining the' +
-                    ' evaluation process.)')],
-            },
-            {
-                id: 'data-science-leadership',
-                segments: [text('Experienced in working and leading data science teams collaborating with architecture' +
-                    ' and engineering teams to create development and production workflows for AI' +
-                    ' applications (information extraction and RAG)')],
-            },
-            {
-                id: 'ownership-extraction',
-                segments: [text('Explored different approaches for creating a novel ownership extraction pipeline that' +
-                    ' can identify the owner of a research infrastructure (medical devices)' +
-                    ' in a zero‑shot environment.')],
-            },
+        ],
+        technologies: [
+            'Python',
+            'Transformers / BERT',
+            'LLMs · SFT / DPO fine-tuning',
+            'RAG',
+            'Prompt engineering / guardrails',
+            'Offline & online evaluation',
+            'AWS · S3 / Lambda / SageMaker',
+            'Vector DBs · OpenSearch',
+            'Docker',
+            'CI/CD',
         ],
     },
     {
         id: 'syntho',
         company: 'Syntho',
+        period: '2021 — 2022',
         role: 'Python Software Engineer Intern',
         highlights: [
             {
                 id: 'pii-scanners',
-                segments: [text('Improved the existing PII (Personally identifiable information) and' +
-                    ' inter-relationship scanners to enhance the accuracy of synthetic data.')],
+                segments: [text('Improved PII and relationship scanners used to generate synthetic data.')],
             },
             {
                 id: 'database-subsetting',
-                segments: [text('Researched and implemented a distributed subsetting algorithm for shrinking' +
-                    ' large production databases into smaller development ones.')],
-            },
-            {
-                id: 'synthetic-data-report',
-                segments: [text('Improved the synthetic data report by implementing statistical and ML' +
-                    ' models that test quality and privacy features.')],
+                segments: [text('Implemented a distributed database-subsetting algorithm for smaller development datasets.')],
             },
             {
                 id: 'visualization-dashboard',
-                segments: [text('Created an interactive visualization dashboard in JS‑D3 that helps clients assess' +
-                    ' the quality of the synthetic data produced in an intuitive way.')],
+                segments: [text('Built a D3 dashboard and maintained Python services for inspecting synthetic-data quality and supporting generation workflows.')],
+            },
+            {
+                id: 'testing-and-devops',
+                segments: [text('Improved engineering reliability through unit and integration testing, CI/CD workflows, Docker environments, and bug investigation across application and deployment workflows.')],
             },
         ],
-    },
-    {
-        id: 'adyen',
-        company: 'Adyen',
-        role: 'Python Software Engineer Intern',
-        highlights: [
-            {
-                id: 'fraud-detection',
-                segments: [text('Implemented an explainable fraud detection model that reached' +
-                    ' a balanced accuracy of 89%.')],
-            },
-            {
-                id: 'fraud-dashboard',
-                segments: [text('Built a dashboard and A.P.I. that allows a user to modify the model’s thresholds' +
-                    ' and settings, while also displaying statistics through visualizations.')],
-            },
-            {
-                id: 'ab-testing',
-                segments: [text('Experimented with A/B testing to improve the intuitiveness of the interface.')],
-            },
-        ],
-    },
-    {
-        id: 'university-of-groningen',
-        company: 'U.G.',
-        role: 'University of Groningen Teaching Assistant',
-        highlights: [
-            {
-                id: 'teaching-assistant',
-                segments: [text('Teaching assistant for the courses: Introduction to information systems,' +
-                    ' Advanced Object Oriented Programming, Introduction to Scientific Computing,' +
-                    ' Web Engineering. ')],
-            },
-            {
-                id: 'course-support',
-                segments: [text('I helped the lecturers create assignments and the exam, grade them, and' +
-                    ' conduct laboratories where students could work on their homework and ask' +
-                    ' questions about the material.')],
-            },
-            {
-                id: 'student-support',
-                segments: [text('I helped students accommodate to their new lives as computer science' +
-                    ' international students in The Netherlands.')],
-            },
+        technologies: [
+            'Python',
+            'Unit & integration testing',
+            'Docker',
+            'CI/CD',
+            'D3.js',
         ],
     },
 ];

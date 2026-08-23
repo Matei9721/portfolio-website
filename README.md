@@ -1,6 +1,6 @@
 # My Personal/Portfolio Website ⭐
 
-This is the source code for my personal website, built using **React**, **Vite**, **Ant Design**, and a **typewriter** library to create an interactive and dynamic feel. The website is hosted on **GitHub Pages** and serves as my online portfolio, showcasing my skills as a Data Scientist and Software Engineer.
+This is the source code for my personal website, built using **React**, **Vite**, custom CSS, and a **typewriter** library to create an interactive and personal feel. The website is hosted on **GitHub Pages** and serves as my online portfolio, showcasing my skills as a Data Scientist and Software Engineer.
 
 ## Demo
 
@@ -10,14 +10,15 @@ Check out the live version of my website [here](https://matei9721.github.io/port
 
 - **React**: A JavaScript library for building user interfaces.
 - **Vite**: Development server and production build tool.
-- **Ant Design**: A popular UI framework for React to build clean and responsive components.
-- **Typewriter Effect Library**: A library to give cool typing effects for text (`react-typewriter-effect`).
+- **Custom CSS**: A bespoke field-notebook and data-console visual system.
+- **Lucide React**: A lightweight, consistent icon set for links and project markers.
+- **Typewriter Effect Library**: A library that powers the animated introduction.
 - **GitHub Pages**: Hosting service for the website.
 
 ## Features
 
 - **Interactive Portfolio**: Dynamic content that showcases my experience, skills, and projects.
-- **Clean and Responsive UI**: Thanks to Ant Design, the website looks great on both desktop and mobile devices.
+- **Custom Responsive UI**: A lightweight visual system designed for the site rather than a component-library theme.
 - **Typewriter Effect**: Adds an eye-catching typewriter animation to various sections of the site.
 - **Custom Components**: Built from scratch using React to provide a personalized touch.
 
@@ -74,7 +75,7 @@ The Vite base path is configured for GitHub Pages at `/portfolio-website/`.
 
 Portfolio copy and links live in `src/content/`, while reusable presentation
 components live in `src/components/`. `App.js` composes the page sections;
-`TerminalSection` owns terminal interaction, and the project and work
+`TerminalSection` owns the accessible custom terminal interaction, and the project and work
 experience sections render from their corresponding content modules.
 
 ## Deployment

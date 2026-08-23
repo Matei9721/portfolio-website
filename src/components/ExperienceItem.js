@@ -1,37 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Timeline} from 'antd';
+
+const renderText = (value) => value.split(/(Elsevier)/gi).map((part, index) => (
+    part.toLowerCase() === 'elsevier'
+        ? <span className="elsevier-text" key={`elsevier-${index}`}>{part}</span>
+        : part
+));
 
 const renderSegments = (segments) => segments.map((segment, index) => {
     if (segment.href) {
         return (
-            <a href={segment.href} key={`${segment.href}-${index}`}>
-                {segment.text}
+            <a href={segment.href} key={`${segment.href}-${index}`} rel="noopener noreferrer" target="_blank">
+                {renderText(segment.text)}
             </a>
         );
     }
 
-    return <React.Fragment key={`text-${index}`}>{segment.text}</React.Fragment>;
+    return <React.Fragment key={`text-${index}`}>{renderText(segment.text)}</React.Fragment>;
 });
 
 const ExperienceItem = ({experience}) => (
-    <div className="experience-item">
-        <br />
-        <strong>{experience.role}</strong>
-        <br />
-        <br />
-        <Timeline
-            items={experience.highlights.map((highlight) => ({
-                key: highlight.id,
-                children: renderSegments(highlight.segments),
-            }))}
-        />
+    <div className="experience-details">
+        <ol className="experience-highlights">
+            {experience.highlights.map((highlight) => (
+                <li key={highlight.id}>
+                    <span className="experience-highlights__marker" aria-hidden="true" />
+                    <p>{renderSegments(highlight.segments)}</p>
+                </li>
+            ))}
+        </ol>
+
+        {experience.technologies && (
+            <div className="experience-technologies">
+                <p>Relevant technologies</p>
+                <ul aria-label={`${experience.company} relevant technologies`}>
+                    {experience.technologies.map((technology) => (
+                        <li key={technology}>{technology}</li>
+                    ))}
+                </ul>
+            </div>
+        )}
     </div>
 );
 
 ExperienceItem.propTypes = {
     experience: PropTypes.shape({
-        role: PropTypes.string.isRequired,
+        company: PropTypes.string.isRequired,
         highlights: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.string.isRequired,
             segments: PropTypes.arrayOf(PropTypes.shape({
@@ -39,6 +53,7 @@ ExperienceItem.propTypes = {
                 href: PropTypes.string,
             })).isRequired,
         })).isRequired,
+        technologies: PropTypes.arrayOf(PropTypes.string),
     }).isRequired,
 };
 
