@@ -44,6 +44,7 @@ test('renders the current portfolio', () => {
   renderPortfolio();
 
   expect(screen.getByTestId('terminal')).toBeInTheDocument();
+  expect(screen.getByRole('region', {name: /Interactive terminal/i})).toHaveAttribute('tabindex', '0');
   expect(screen.getByText(/use this/i)).toBeInTheDocument();
 });
 
@@ -51,7 +52,7 @@ test('preserves the welcome message role phrase', () => {
   renderPortfolio();
 
   expect(screen.getByTestId('terminal')).toHaveTextContent(
-    /I've been working as a\s+Software Engineer\s+and\s+Data Scientist\s+where I've build/i,
+    /I work as a\s+Software Engineer\s+and\s+Data Scientist\s+across search/i,
   );
 });
 
@@ -68,7 +69,7 @@ describe('terminal commands', () => {
     ['help', [/whoami/i, /education/i, /spotify/i, /experience/i, /clear/i]],
     ['whoami', /I was born in Romania/],
     ['education', /Groningen/],
-    ['experience', /first experience with building/i],
+    ['experience', /first experience building/i],
     ['spotify', /Bleach/],
   ])('runs %s', async (command, expectedOutput) => {
     renderPortfolio();
@@ -95,33 +96,28 @@ describe('terminal commands', () => {
   });
 });
 
-test('contains every work-experience entry and its representative content', () => {
+test('shows the current career progression and omits older low-relevance roles', () => {
   renderPortfolio();
 
-  expect(screen.getByRole('tablist'))
-    .toHaveAttribute('aria-orientation', 'horizontal');
-
-  const entries = [
-    ['Elsevier', /information extraction pipelines/i],
-    ['Syntho', /PII \(Personally identifiable information\)/i],
-    ['Adyen', /explainable fraud detection/i],
-    ['U.G.', /Teaching assistant/i],
-  ];
-
-  entries.forEach(([label, content]) => {
-    fireEvent.click(screen.getByRole('tab', { name: label }));
-    expect(screen.getAllByText(content).length).toBeGreaterThan(0);
-  });
+  expect(screen.getByRole('heading', {name: 'Elsevier'})).toBeInTheDocument();
+  expect(screen.getByRole('heading', {name: 'Senior Data Scientist'})).toBeInTheDocument();
+  expect(screen.getByRole('heading', {name: 'Data Scientist III'})).toBeInTheDocument();
+  expect(screen.getByRole('heading', {name: 'Data Scientist II'})).toBeInTheDocument();
+  expect(screen.getByRole('heading', {name: 'Data Science Intern'})).toBeInTheDocument();
+  expect(screen.getByText(/multi-agent deep-research assistant/i)).toBeInTheDocument();
+  expect(screen.getByText(/synthetic-data quality reports/i)).toBeInTheDocument();
+  expect(screen.queryByText('Adyen')).not.toBeInTheDocument();
+  expect(screen.queryByText('U.G.')).not.toBeInTheDocument();
 });
 
 test('contains every project GitHub link', () => {
   const { container } = renderPortfolio();
 
   const projectLinks = [
-    ['View GenAI ChatBot Assistant on GitHub', 'https://github.com/Matei9721/ai-search-engine'],
-    ['View Project IDLab on GitHub', 'https://github.com/osoc22/project-idlab'],
-    ['View this portfolio on GitHub', 'https://github.com/Matei9721/portofolio-website'],
-    ['View Discord Javascript bot on GitHub', 'https://github.com/Matei9721/js-discord-bot'],
+    ['View the chatbot source', 'https://github.com/Matei9721/ai-search-engine'],
+    ['View the IDLab source', 'https://github.com/osoc22/project-idlab'],
+    ['View this portfolio source', 'https://github.com/Matei9721/portofolio-website'],
+    ['View the Discord bot source', 'https://github.com/Matei9721/js-discord-bot'],
   ];
 
   projectLinks.forEach(([name, href]) => {
@@ -131,8 +127,18 @@ test('contains every project GitHub link', () => {
   const projectGrid = container.querySelector('.projects-grid');
   expect(projectGrid).toBeInTheDocument();
   expect(projectGrid.children).toHaveLength(projectLinks.length);
-  expect([...projectGrid.children].every((child) => child.classList.contains('project-column')))
+  expect([...projectGrid.children].every((child) => child.classList.contains('project-card')))
     .toBe(true);
+});
+
+test('keeps the primary portfolio interactions discoverable', () => {
+  renderPortfolio();
+
+  expect(screen.getByRole('link', {name: /Matei Penca on GitHub/i})).toBeInTheDocument();
+  expect(screen.getByRole('link', {name: /Matei Penca on LinkedIn/i})).toBeInTheDocument();
+  expect(screen.getByRole('link', {name: /Download Matei Penca's CV/i})).toBeInTheDocument();
+  expect(screen.getByRole('link', {name: /Back to top/i})).toHaveAttribute('href', '#top');
+  expect(screen.getByRole('link', {name: /Scroll to explore/i})).toHaveAttribute('href', '#about');
 });
 
 test('does not render unnamed links or buttons', () => {

@@ -1,60 +1,56 @@
+import portfolioPreview from '../resources/website.PNG';
+
 export const personalProjects = [
     {
         id: 'genai-chatbot-assistant',
-        title: 'GenAI ChatBot Assistant that can surf the web',
-        description: 'This project is a Generative AI (GenAI) application that leverages LangGraph\n' +
-            'to build an agent-driven Retrieval-Augmented Generation (RAG) system. The application\n' +
-            'integrates an open-source web search engine to search for real-time information to\n' +
-            'answer user queries.',
+        title: 'A chatbot that can surf the web',
+        description: 'An agent-driven RAG experiment using LangGraph and open-source web search to answer questions with live information.',
+        tags: ['LangGraph', 'RAG', 'Web search'],
         image: {
             src: 'https://i.ibb.co/Bc4ScZY/DALL-E-2024-09-15-21-30-34-A-super-simplistic-and-cute-design-for-a-Gen-AI-application-thumbnail-Sho.webp',
-            alt: 'example',
+            alt: 'A small friendly robot floating among clouds',
             className: 'project-card__image--standard',
         },
         githubUrl: 'https://github.com/Matei9721/ai-search-engine',
-        githubLabel: 'View GenAI ChatBot Assistant on GitHub',
+        githubLabel: 'View the chatbot source',
     },
     {
         id: 'project-idlab',
-        title: 'Project IDLab - Powerful Personal Data',
-        description: 'As part of a month-long Hackaton in Belgium, I have partnered up with IDLab\n' +
-            'and Imec to showcase how taking back control of your personal data can be achieved using\n' +
-            'linked data and Solid pods. Our final product was a linked-data connected weather app.',
+        title: 'Powerful Personal Data',
+        description: 'A month-long hackathon collaboration with IDLab and imec: a linked-data weather app built around Solid pods and personal data ownership.',
+        tags: ['Linked data', 'Solid pods', 'Hackathon'],
         image: {
             src: 'https://raw.githubusercontent.com/osoc22/project-idlab/049fd122bdbf4d9426c90bcb5d1dc244c5c5f8f1/docs/assets/powerful-personal-data-crest.svg',
-            alt: 'ID Lab Logo',
+            alt: 'Powerful Personal Data project crest',
             className: 'project-card__image--standard',
         },
         githubUrl: 'https://github.com/osoc22/project-idlab',
-        githubLabel: 'View Project IDLab on GitHub',
+        githubLabel: 'View the IDLab source',
     },
     {
         id: 'portfolio-website',
-        title: "This website you're currently on",
-        description: "To brush up my JavaScript skills, I built this personal website using the\n" +
-            "dynamic duo of React and Ant Design. I 'borrowed' ideas from the internet and gave them\n" +
-            'my own quirky twist. Check out the code antics on GitHub!',
+        title: 'This website, naturally',
+        description: 'The place where I experiment with React, interaction design and the visual ideas I refuse to leave alone.',
+        tags: ['React', 'Vite', 'Creative coding'],
         image: {
-            src: 'https://raw.githubusercontent.com/Matei9721/portofolio-website/main/src/resources/website.PNG',
-            alt: 'example',
+            src: portfolioPreview,
+            alt: 'An earlier version of this portfolio website',
             className: 'project-card__image--portfolio',
         },
         githubUrl: 'https://github.com/Matei9721/portofolio-website',
-        githubLabel: 'View this portfolio on GitHub',
+        githubLabel: 'View this portfolio source',
     },
     {
         id: 'discord-javascript-bot',
-        title: 'Discord Javascript bot',
-        description: "A JavaScript bot using the official Discord API which can play music\n" +
-            "using Youtube's API. Supports queues, livestreams and keyword search. Developed with\n" +
-            'my best friend so we can finally argue about code we both contribute to.',
+        title: 'The Discord music bot',
+        description: 'A Discord music bot built with my best friend, complete with queues, livestreams and keyword search.',
+        tags: ['JavaScript', 'Discord API', 'Music'],
         image: {
             src: 'https://github-production-user-asset-6210df.s3.amazonaws.com/60573633/275339002-7f07be17-1655-4d2e-ae96-d1d21b099235.PNG',
-            alt: 'Discord Bot',
+            alt: 'The Discord music bot playing a track in chat',
             className: 'project-card__image--discord',
         },
         githubUrl: 'https://github.com/Matei9721/js-discord-bot',
-        githubLabel: 'View Discord Javascript bot on GitHub',
-        hoverable: true,
+        githubLabel: 'View the Discord bot source',
     },
 ];

@@ -1,34 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useInView} from 'react-intersection-observer';
-import Typewriter from 'typewriter-effect';
 
-const SectionHeading = ({title}) => {
-    const [ref, inView] = useInView({
-        triggerOnce: true,
-    });
-
-    return (
-        <div className="section-heading" ref={ref}>
-            {inView && (
-                <Typewriter
-                    onInit={(typewriter) => {
-                        typewriter
-                            .typeString(`<span class="typewriter-string">${title}</span>`)
-                            .start();
-                    }}
-                    options={{
-                        loop: false,
-                        cursor: '<span class="typewriter-cursor"></span>',
-                    }}
-                />
-            )}
-        </div>
-    );
-};
+const SectionHeading = ({title, eyebrow}) => (
+    <header className="section-heading">
+        <p>{eyebrow}</p>
+        <h2>{title}<span aria-hidden="true">.</span></h2>
+    </header>
+);
 
 SectionHeading.propTypes = {
     title: PropTypes.string.isRequired,
+    eyebrow: PropTypes.string.isRequired,
 };
 
 export default SectionHeading;

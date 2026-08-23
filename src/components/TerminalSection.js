@@ -7,10 +7,10 @@ import {terminalContent} from '../content/terminalContent';
 
 const terminalTheme = {
     'my-custom-theme': {
-        themeBGColor: '#efeff0',
-        themeToolbarColor: '#efeff0',
-        themeColor: '#262323',
-        themePromptColor: '#310930',
+        themeBGColor: '#111510',
+        themeToolbarColor: '#171c16',
+        themeColor: '#d9dfd2',
+        themePromptColor: '#b8f05a',
     },
 };
 
@@ -103,13 +103,24 @@ const TerminalSection = () => {
     };
 
     return (
-        <div className="terminal">
-            <ReactTerminal
-                commands={commands}
-                theme="my-custom-theme"
-                themes={terminalTheme}
-                welcomeMessage={<TerminalText segments={terminalContent.welcome} />}
-            />
+        <div className="terminal-shell">
+            <div className="terminal-label" aria-hidden="true">
+                <span>matei@portfolio</span>
+                <span>interactive</span>
+            </div>
+            <div
+                aria-label="Interactive terminal. Type help to list commands."
+                className="terminal"
+                role="region"
+                tabIndex="0"
+            >
+                <ReactTerminal
+                    commands={commands}
+                    theme="my-custom-theme"
+                    themes={terminalTheme}
+                    welcomeMessage={<TerminalText segments={terminalContent.welcome} />}
+                />
+            </div>
         </div>
     );
 };

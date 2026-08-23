@@ -5,116 +5,78 @@ export const workExperience = [
     {
         id: 'elsevier',
         company: 'Elsevier',
-        role: 'Natural Language Processing Data Scientist',
-        highlights: [
+        location: 'Amsterdam · Hybrid',
+        dates: 'Jan 2023 — present',
+        roles: [
             {
-                id: 'genai-pocs',
-                segments: [text('Created multiple GenAI POCs (RAG, image processing, agents), experimenting' +
-                    ' prompting strategies and different language models (local and proprietary), and building' +
-                    ' full-stack applications with user interfaces. These POCs helped business and content' +
-                    ' experts experiment and create new product flows.')],
-            },
-            {
-                id: 'information-extraction',
-                segments: [
-                    text('Developed and planned information extraction pipelines: created rule-based and ' +
-                        'deep-learning models (transformer-based/BERT) and deployed them in production-ready ' +
-                        'environments (AWS). The extraction pipelines have been integrated into'),
-                    link(' Embiology', 'https://www.elsevier.com/products/embiology'),
-                    text(' and improved results of the previous solution by 40% in precision.'),
+                id: 'elsevier-senior-data-scientist',
+                title: 'Senior Data Scientist',
+                dates: 'Mar 2025 — present',
+                highlights: [
+                    {
+                        id: 'multi-agent-research',
+                        segments: [text('Led the design and delivery of a multi-agent deep-research assistant across Elsevier solutions.')],
+                    },
+                    {
+                        id: 'embase-ai',
+                        segments: [
+                            text('Helped shape and build '),
+                            link('EmbaseAI', 'https://www.elsevier.com/products/embase/embase-ai'),
+                            text(', a natural-language search experience that supported a 20% uplift in reselling.'),
+                        ],
+                    },
+                    {
+                        id: 'rag-products',
+                        segments: [
+                            text('Shipped RAG and conversational search improvements for '),
+                            link('ReaxysAI', 'https://www.elsevier.com/about/press-releases/elsevier-introduces-reaxys-ai-search-enabling-faster-and-more-accessible'),
+                            text(' and '),
+                            link('PharmapendiumAI', 'https://www.elsevier.com/products/pharmapendium/pharmapendium-ai'),
+                            text(', improving user retention by more than 30%.'),
+                        ],
+                    },
+                    {
+                        id: 'information-extraction',
+                        segments: [text('Built production-scale information-extraction pipelines that process millions of documents annually and improved precision by roughly 40%.')],
+                    },
                 ],
             },
             {
-                id: 'llm-evaluation',
-                segments: [text('Developed an in-house automatic evaluation (supporting local and commercial LLMs)' +
-                    ' framework for Retrieval and Generative AI (RAG) applications. (Implemented LLM evaluation' +
-                    ' as CI/CD pipelines, significantly reducing manual labour and streamlining the' +
-                    ' evaluation process.)')],
+                id: 'elsevier-data-scientist-iii',
+                title: 'Data Scientist III',
+                dates: 'Oct 2024 — Feb 2025',
             },
             {
-                id: 'data-science-leadership',
-                segments: [text('Experienced in working and leading data science teams collaborating with architecture' +
-                    ' and engineering teams to create development and production workflows for AI' +
-                    ' applications (information extraction and RAG)')],
+                id: 'elsevier-data-scientist-ii',
+                title: 'Data Scientist II',
+                dates: 'Jul 2023 — Oct 2024',
             },
             {
-                id: 'ownership-extraction',
-                segments: [text('Explored different approaches for creating a novel ownership extraction pipeline that' +
-                    ' can identify the owner of a research infrastructure (medical devices)' +
-                    ' in a zero‑shot environment.')],
+                id: 'elsevier-data-science-intern',
+                title: 'Data Science Intern',
+                dates: 'Jan 2023 — Jun 2023',
             },
         ],
+        skills: ['Python', 'LLMs & RAG', 'Agents', 'AWS', 'BERT', 'Evaluation'],
     },
     {
         id: 'syntho',
         company: 'Syntho',
-        role: 'Python Software Engineer Intern',
-        highlights: [
+        location: 'Amsterdam',
+        dates: 'Earlier work',
+        roles: [
             {
-                id: 'pii-scanners',
-                segments: [text('Improved the existing PII (Personally identifiable information) and' +
-                    ' inter-relationship scanners to enhance the accuracy of synthetic data.')],
-            },
-            {
-                id: 'database-subsetting',
-                segments: [text('Researched and implemented a distributed subsetting algorithm for shrinking' +
-                    ' large production databases into smaller development ones.')],
-            },
-            {
-                id: 'synthetic-data-report',
-                segments: [text('Improved the synthetic data report by implementing statistical and ML' +
-                    ' models that test quality and privacy features.')],
-            },
-            {
-                id: 'visualization-dashboard',
-                segments: [text('Created an interactive visualization dashboard in JS‑D3 that helps clients assess' +
-                    ' the quality of the synthetic data produced in an intuitive way.')],
+                id: 'syntho-python-engineer',
+                title: 'Python Software Engineer Intern',
+                dates: 'Internship',
+                highlights: [
+                    {
+                        id: 'synthetic-data',
+                        segments: [text('Worked on PII scanners, database subsetting, synthetic-data quality reports and an interactive D3 dashboard.')],
+                    },
+                ],
             },
         ],
-    },
-    {
-        id: 'adyen',
-        company: 'Adyen',
-        role: 'Python Software Engineer Intern',
-        highlights: [
-            {
-                id: 'fraud-detection',
-                segments: [text('Implemented an explainable fraud detection model that reached' +
-                    ' a balanced accuracy of 89%.')],
-            },
-            {
-                id: 'fraud-dashboard',
-                segments: [text('Built a dashboard and A.P.I. that allows a user to modify the model’s thresholds' +
-                    ' and settings, while also displaying statistics through visualizations.')],
-            },
-            {
-                id: 'ab-testing',
-                segments: [text('Experimented with A/B testing to improve the intuitiveness of the interface.')],
-            },
-        ],
-    },
-    {
-        id: 'university-of-groningen',
-        company: 'U.G.',
-        role: 'University of Groningen Teaching Assistant',
-        highlights: [
-            {
-                id: 'teaching-assistant',
-                segments: [text('Teaching assistant for the courses: Introduction to information systems,' +
-                    ' Advanced Object Oriented Programming, Introduction to Scientific Computing,' +
-                    ' Web Engineering. ')],
-            },
-            {
-                id: 'course-support',
-                segments: [text('I helped the lecturers create assignments and the exam, grade them, and' +
-                    ' conduct laboratories where students could work on their homework and ask' +
-                    ' questions about the material.')],
-            },
-            {
-                id: 'student-support',
-                segments: [text('I helped students accommodate to their new lives as computer science' +
-                    ' international students in The Netherlands.')],
-            },
-        ],
+        skills: ['Python', 'Machine learning', 'Synthetic data', 'D3.js'],
     },
 ];

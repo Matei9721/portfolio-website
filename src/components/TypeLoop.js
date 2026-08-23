@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import Typewriter from 'typewriter-effect';
 import useSound from 'use-sound';
 import ReactGA from 'react-ga4';
-import {GithubOutlined, LinkedinOutlined, FilePdfOutlined} from '@ant-design/icons';
 import SocialLink from './SocialLink';
 
 // CSS imports
@@ -41,10 +40,13 @@ const TypeLoop = () => {
         '<span class="typewriter-string">"Software Engineer";</span>']
 
     return (
-        <div className="centered-container">
+        <section className="centered-container hero" aria-labelledby="hero-name">
+            <div className="hero-orbit hero-orbit--one" aria-hidden="true" />
+            <div className="hero-orbit hero-orbit--two" aria-hidden="true" />
+            <p className="hero-kicker">AI systems · data science · software</p>
             {/*When clicking the text, the sound plays, but because of a bug, works only when clicking the name.*/}
-            <div data-testid="hero-intro" onClick={play}>
-                <span className="visually-hidden">Hello there, my name is Matei Penca.</span>
+            <div className="hero-intro" data-testid="hero-intro" onClick={play}>
+                <h1 className="visually-hidden" id="hero-name">Hello there, my name is Matei Penca.</h1>
                 <Typewriter onClick={play}
                             onInit={(typewriter) => {
                                 typewriter
@@ -77,23 +79,23 @@ const TypeLoop = () => {
                 )}
             </div>
 
-            <span className="social-links">
+            <div className="social-links" aria-label="Profile links">
                 <SocialLink
                     className="social-link--hero"
                     href="https://github.com/Matei9721"
-                    icon={<GithubOutlined aria-hidden="true" />}
+                    icon={<><span aria-hidden="true">↗</span> GitHub</>}
                     label="Matei Penca on GitHub"
                 />
                 <SocialLink
                     className="social-link--hero"
                     href="https://www.linkedin.com/in/matei-penca/"
-                    icon={<LinkedinOutlined aria-hidden="true" />}
+                    icon={<><span aria-hidden="true">↗</span> LinkedIn</>}
                     label="Matei Penca on LinkedIn"
                 />
                 <SocialLink
                     className="social-link--hero"
                     href="https://drive.google.com/uc?id=1PkFNgiAtsiT0sTWurVpcqrFWsyTM7pn-&export=download"
-                    icon={<FilePdfOutlined aria-hidden="true" />}
+                    icon={<><span aria-hidden="true">↓</span> CV</>}
                     label="Download Matei Penca's CV"
                     onClick={() => ReactGA.event({
                         category: 'Social Links',
@@ -101,9 +103,12 @@ const TypeLoop = () => {
                         label: 'CV',
                     })}
                 />
-            </span>
-
-        </div>
+            </div>
+            <a className="hero-scroll" href="#about">
+                <span>Scroll to explore</span>
+                <span aria-hidden="true">↓</span>
+            </a>
+        </section>
 
 
     );

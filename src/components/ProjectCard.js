@@ -1,39 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Card} from 'antd';
-import {GithubOutlined, QuestionCircleOutlined} from '@ant-design/icons';
 
-import SocialLink from './SocialLink';
-
-const {Meta} = Card;
-
-const ProjectCard = ({project}) => (
-    <Card
-        className="project-card"
-        cover={
+const ProjectCard = ({project, index}) => (
+    <article className="project-card">
+        <div className="project-card__visual">
             <img
                 alt={project.image.alt}
                 className={`project-card__image ${project.image.className}`}
+                loading="lazy"
                 src={project.image.src}
             />
-        }
-        hoverable={project.hoverable}
-        actions={[
-            <SocialLink
-                key="github"
-                href={project.githubUrl}
-                icon={<GithubOutlined aria-hidden="true" />}
-                label={project.githubLabel}
-            />,
-            <QuestionCircleOutlined aria-hidden="true" key="details" />,
-        ]}
-    >
-        <Meta
-            className="project-card__meta"
-            description={project.description}
-            title={project.title}
-        />
-    </Card>
+            <span className="project-card__number">0{index + 1}</span>
+        </div>
+        <div className="project-card__body">
+            <p className="project-card__eyebrow">Personal experiment</p>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+            <ul aria-label={`${project.title} technologies`} className="tag-list">
+                {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
+            </ul>
+            <a className="project-card__link" href={project.githubUrl} rel="noopener noreferrer" target="_blank">
+                <span>{project.githubLabel}</span>
+                <span aria-hidden="true">↗</span>
+            </a>
+        </div>
+    </article>
 );
 
 ProjectCard.propTypes = {
@@ -48,8 +39,9 @@ ProjectCard.propTypes = {
         }).isRequired,
         githubUrl: PropTypes.string.isRequired,
         githubLabel: PropTypes.string.isRequired,
-        hoverable: PropTypes.bool,
+        tags: PropTypes.arrayOf(PropTypes.string).isRequired,
     }).isRequired,
+    index: PropTypes.number.isRequired,
 };
 
 export default ProjectCard;
