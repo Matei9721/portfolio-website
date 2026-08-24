@@ -946,6 +946,11 @@
   transform: translateX(-50%) rotate(8deg);
 }
 
+.project-card:nth-child(5) > .paper-tape {
+  left: 70%;
+  transform: translateX(-50%) rotate(-6deg);
+}
+
 .experience-entry__index {
   padding-top: 6px;
   color: var(--muted);
@@ -1273,7 +1278,8 @@
   .project-card,
   .project-card:nth-child(2),
   .project-card:nth-child(3),
-  .project-card:nth-child(4) {
+  .project-card:nth-child(4),
+  .project-card:nth-child(5) {
     grid-column: span 6;
   }
 }
@@ -1458,7 +1464,8 @@
   .project-card,
   .project-card:nth-child(2),
   .project-card:nth-child(3),
-  .project-card:nth-child(4) {
+  .project-card:nth-child(4),
+  .project-card:nth-child(5) {
     grid-column: 1;
     width: 100%;
     min-height: 380px;
