@@ -59,11 +59,11 @@ const TypeLoop = () => {
                                 ) : (
                                     <Typewriter
                                         onInit={(typewriter) => {
-                                            typewriter.typeString(introPhrase).start();
+                                            typewriter.pauseFor(100).typeString(introPhrase).start();
                                         }}
                                         options={{
                                             loop: false,
-                                            delay: 55,
+                                            delay: 75,
                                             cursor: '<span class="typewriter-cursor"></span>',
                                         }}
                                     />
