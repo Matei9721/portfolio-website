@@ -208,9 +208,10 @@ test('contains every personal project GitHub link', () => {
 
   const projectLinks = [
     ['View BeerRunJPN on GitHub', 'https://github.com/Matei9721/beer-run-jpn'],
-    ['View Romanian CS Forces on GitHub', 'https://github.com/Matei9721/cs-tracker'],
+    ['View AI Search Engine on GitHub', 'https://github.com/Matei9721/ai-search-engine'],
+    ['View Portfolio website on GitHub', 'https://github.com/Matei9721/portfolio-website'],
+    ['View Project IDLab on GitHub', 'https://github.com/osoc22/project-idlab'],
     ['View Ashfall DM control room on GitHub', 'https://github.com/Matei9721/ashfall-dnd'],
-    ['View Anime recommender on GitHub', 'https://github.com/Matei9721/anime-recommender'],
   ];
 
   projectLinks.forEach(([name, href]) => {
@@ -228,7 +229,7 @@ test('uses masking tape as the paper-workshop fastener motif', () => {
   const { container } = renderPortfolio();
   const tapePieces = [...container.querySelectorAll('.paper-tape')];
 
-  expect(tapePieces).toHaveLength(11);
+  expect(tapePieces).toHaveLength(12);
   expect(tapePieces.every((tape) => tape.getAttribute('aria-hidden') === 'true')).toBe(true);
   expect(container.querySelector('.paper-bandage')).not.toBeInTheDocument();
   expect(container.querySelector('.note-pin')).not.toBeInTheDocument();
@@ -246,7 +247,7 @@ test('uses two corner tapes on wide notes and one on project notes', () => {
     expect(note.querySelector('.paper-tape--right')).toHaveAttribute('aria-hidden', 'true');
   });
 
-  expect(projectNotes).toHaveLength(4);
+  expect(projectNotes).toHaveLength(5);
   projectNotes.forEach((note) => {
     expect(note.querySelectorAll('.paper-tape')).toHaveLength(1);
     expect(note.querySelector('.paper-tape')).toHaveAttribute('aria-hidden', 'true');
