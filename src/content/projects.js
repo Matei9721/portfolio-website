@@ -1,12 +1,16 @@
 export const personalProjects = [
     {
         id: 'beer-run-jpn',
-        title: 'BeerRunJPN',
-        description: 'A drink tracker I made for a trip to Japan. It runs on a Raspberry Pi and has a shared leaderboard, a map, and a mobile-first interface.',
+        title: 'Beer Run',
+        description: 'A live drink-tracking app I originally built for a trip to Japan, with a shared leaderboard, map, and mobile-first interface. It\'s now deployed and used by people around the world.',
         repoName: 'Matei9721/beer-run-jpn',
         githubUrl: 'https://github.com/Matei9721/beer-run-jpn',
-        githubLabel: 'View BeerRunJPN on GitHub',
+        githubLabel: 'View Beer Run source on GitHub',
+        liveUrl: 'https://beerrun.ddns.net',
+        liveLabel: 'Open Beer Run live',
+        logo: 'beer-run-wordmark.svg',
         tags: ['FastAPI', 'SQLite', 'Leaflet'],
+        featured: true,
     },
     {
         id: 'ai-search-engine',

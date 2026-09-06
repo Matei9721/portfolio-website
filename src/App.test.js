@@ -207,7 +207,7 @@ test('contains every personal project GitHub link', () => {
   const { container } = renderPortfolio();
 
   const projectLinks = [
-    ['View BeerRunJPN on GitHub', 'https://github.com/Matei9721/beer-run-jpn'],
+    ['View Beer Run source on GitHub', 'https://github.com/Matei9721/beer-run-jpn'],
     ['View AI Search Engine on GitHub', 'https://github.com/Matei9721/ai-search-engine'],
     ['View Portfolio website on GitHub', 'https://github.com/Matei9721/portfolio-website'],
     ['View Project IDLab on GitHub', 'https://github.com/osoc22/project-idlab'],
@@ -223,6 +223,28 @@ test('contains every personal project GitHub link', () => {
   expect(projectGrid.children).toHaveLength(projectLinks.length);
   expect([...projectGrid.children].every((child) => child.tagName === 'ARTICLE')).toBe(true);
   expect(container.querySelector('.project-card__meta')).not.toBeInTheDocument();
+});
+
+test('presents Beer Run as the featured live build', () => {
+  renderPortfolio();
+
+  const beerRunCard = screen.getByRole('heading', {name: 'Beer Run'}).closest('.project-card');
+
+  expect(beerRunCard).toHaveClass('project-card--featured');
+  expect(screen.getByText('Featured build · live')).toBeInTheDocument();
+  expect(screen.getByText(/deployed and used by people around the world/i)).toBeInTheDocument();
+  expect(screen.getByRole('link', {name: 'Open Beer Run live'})).toHaveAttribute('href', 'https://beerrun.ddns.net');
+  expect(beerRunCard.querySelector('.project-card__wordmark')).toHaveAttribute(
+    'src',
+    expect.stringContaining('beer-run-wordmark.svg'),
+  );
+});
+
+test('uses the supporting layout for the remaining project cards', () => {
+  const { container } = renderPortfolio();
+
+  expect(container.querySelectorAll('.project-card--supporting')).toHaveLength(4);
+  expect(container.querySelectorAll('.project-card--featured')).toHaveLength(1);
 });
 
 test('uses masking tape as the paper-workshop fastener motif', () => {
