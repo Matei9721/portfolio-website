@@ -37,7 +37,7 @@ const ProjectCard = ({project}) => (
                     target="_blank"
                 >
                     <ExternalLink aria-hidden="true" />
-                    <span>Open Beer Run</span>
+                    <span>Open {project.title}</span>
                     <ExternalLink aria-hidden="true" />
                 </a>
                 <a

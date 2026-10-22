@@ -46,6 +46,8 @@ export const personalProjects = [
         repoName: 'Matei9721/ashfall-dnd',
         githubUrl: 'https://github.com/Matei9721/ashfall-dnd',
         githubLabel: 'View Ashfall DM control room on GitHub',
+        liveUrl: 'https://matei9721.github.io/ashfall-dnd/',
+        liveLabel: 'Open Ashfall DM control room live',
         tags: ['HTML', 'CSS', 'JavaScript'],
     },
 ];

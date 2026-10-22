@@ -64,7 +64,7 @@ test('preserves both roles in the welcome message', () => {
   renderPortfolio();
 
   expect(screen.getByTestId('terminal')).toHaveTextContent(
-    /I am a\s+AI Engineer\s+and\s+Data Scientist\s+working on search/i,
+    /I am a\s+AI Engineer\s+and\s+Data Scientist/i,
   );
 });
 
@@ -77,7 +77,7 @@ test('exposes the hero identity without waiting for the typewriter animation', (
   })).toBeInTheDocument();
   expect(screen.getByTestId('hero-intro')).toBeInTheDocument();
   expect(screen.getByText(
-    /Senior Data Scientist and AI Engineer based in Randstad, Netherlands/i,
+    /Senior Data Scientist and Senior AI Engineer based in Randstad, Netherlands/i,
   )).toBeInTheDocument();
   expect(screen.getByRole('button', { name: /hidden hello there easter egg/i }))
     .toBeInTheDocument();
@@ -111,7 +111,7 @@ describe('terminal commands', () => {
     ['help', [/whoami/i, /education/i, /spotify/i, /experience/i, /clear/i]],
     ['whoami', /I was born in Romania/],
     ['education', /Groningen/],
-    ['experience', /first software role was at/i],
+    ['experience', /For the Reaxys chemistry assistant/i],
     ['spotify', /Bleach/],
   ])('runs %s', async (command, expectedOutput) => {
     renderPortfolio();
@@ -155,34 +155,47 @@ describe('terminal commands', () => {
   });
 });
 
-test('focuses work experience on Elsevier and Syntho', () => {
+test('focuses work experience on Elsevier and production delivery', () => {
   renderPortfolio();
 
   expect(screen.getByRole('heading', { name: /Senior Data Scientist/i }))
     .toBeInTheDocument();
-  expect(screen.getByRole('heading', { name: /Python Software Engineer Intern/i }))
-    .toBeInTheDocument();
+  expect(screen.queryByRole('heading', { name: /Python Software Engineer Intern/i }))
+    .not.toBeInTheDocument();
   expect(screen.getAllByText(/information-extraction pipelines/i).length).toBeGreaterThan(0);
   expect(screen.getByText(/planning, reasoning, and research agents/i)).toBeInTheDocument();
   expect(screen.getByText(/20% uplift in reselling/i)).toBeInTheDocument();
   expect(screen.getByText(/boosting user retention by more than 30%/i)).toBeInTheDocument();
   expect(screen.getByText(/processes millions of documents annually/i)).toBeInTheDocument();
   const technologies = screen.getByRole('list', { name: /Elsevier relevant technologies/i });
-  expect(technologies.children).toHaveLength(10);
   expect(technologies).toHaveTextContent(/LLMs · SFT \/ DPO fine-tuning/i);
   expect(technologies).toHaveTextContent(/Vector DBs · OpenSearch/i);
-  expect(screen.getByText(/Improved PII and relationship scanners/i)).toBeInTheDocument();
-  expect(screen.getByText(/Built a D3 dashboard and maintained Python services/i)).toBeInTheDocument();
-  expect(screen.getByText(/Improved engineering reliability through unit and integration testing/i)).toBeInTheDocument();
-  const synthoTechnologies = screen.getByRole('list', { name: /Syntho relevant technologies/i });
-  expect(synthoTechnologies.children).toHaveLength(5);
-  expect(synthoTechnologies).toHaveTextContent(/Python/);
-  expect(synthoTechnologies).toHaveTextContent(/D3\.js/);
+  expect(technologies).toHaveTextContent(/FastAPI/);
+  const work = screen.getByRole('heading', { name: /Senior Data Scientist/i }).closest('article');
+  expect(work.querySelector('.experience-highlights li:first-child')).toHaveTextContent(/Reaxys chemistry assistant/);
+  expect(work).toHaveTextContent(/Delivered the API to production, supporting up to 100 concurrent users/);
+  expect(work).toHaveTextContent(/90% helpfulness score/);
+  expect(screen.queryByText(/Syntho/i)).not.toBeInTheDocument();
   expect(screen.queryByText('Adyen')).not.toBeInTheDocument();
   expect(screen.queryByText('U.G.')).not.toBeInTheDocument();
   expect(screen.getByText('2023 — now')).toBeInTheDocument();
-  expect(screen.getByText('2021 — 2022')).toBeInTheDocument();
+  expect(screen.queryByText('2021 — 2022')).not.toBeInTheDocument();
   expect(screen.getByRole('list', {name: /Elsevier role progression/i})).toBeInTheDocument();
+});
+
+test('exposes Elsevier projects as headings for scanning and navigation', () => {
+  renderPortfolio();
+
+  expect(screen.getByRole('list', {name: 'Elsevier project highlights'})).toBeInTheDocument();
+  [
+    'Reaxys chemistry assistant',
+    'Multi-agent research assistant',
+    'EmbaseAI',
+    'PharmapendiumAI',
+    'Information extraction at scale',
+  ].forEach((name) => {
+    expect(screen.getByRole('heading', {name, level: 4})).toBeInTheDocument();
+  });
 });
 
 test('links Elsevier AI products from the experience details', () => {
@@ -191,7 +204,7 @@ test('links Elsevier AI products from the experience details', () => {
   const productLinks = [
     ['EmbaseAI', 'https://www.elsevier.com/products/embase/embase-ai'],
     [
-      'ReaxysAI',
+      'Reaxys chemistry assistant',
       'https://www.elsevier.com/about/press-releases/elsevier-introduces-reaxys-ai-search-enabling-faster-and-more-accessible',
     ],
     ['PharmapendiumAI', 'https://www.elsevier.com/products/pharmapendium/pharmapendium-ai'],
@@ -240,6 +253,16 @@ test('presents Beer Run as the featured live build', () => {
   );
 });
 
+test('links to the deployed Ashfall app with its own live-link label', () => {
+  renderPortfolio();
+
+  const liveLink = screen.getByRole('link', {name: 'Open Ashfall DM control room live'});
+  expect(liveLink).toHaveAttribute('href', 'https://matei9721.github.io/ashfall-dnd/');
+  expect(liveLink).toHaveTextContent('Open Ashfall DM control room');
+  expect(liveLink).toHaveAttribute('target', '_blank');
+  expect(screen.getByRole('link', {name: 'Open Beer Run live'})).toHaveTextContent('Open Beer Run');
+});
+
 test('uses the supporting layout for the remaining project cards', () => {
   const { container } = renderPortfolio();
 
@@ -251,7 +274,7 @@ test('uses masking tape as the paper-workshop fastener motif', () => {
   const { container } = renderPortfolio();
   const tapePieces = [...container.querySelectorAll('.paper-tape')];
 
-  expect(tapePieces).toHaveLength(12);
+  expect(tapePieces).toHaveLength(10);
   expect(tapePieces.every((tape) => tape.getAttribute('aria-hidden') === 'true')).toBe(true);
   expect(container.querySelector('.paper-bandage')).not.toBeInTheDocument();
   expect(container.querySelector('.note-pin')).not.toBeInTheDocument();
@@ -262,7 +285,7 @@ test('uses two corner tapes on wide notes and one on project notes', () => {
   const workNotes = container.querySelectorAll('.experience-entry');
   const projectNotes = container.querySelectorAll('.project-card');
 
-  expect(workNotes).toHaveLength(2);
+  expect(workNotes).toHaveLength(1);
   workNotes.forEach((note) => {
     expect(note.querySelectorAll('.paper-tape')).toHaveLength(2);
     expect(note.querySelector('.paper-tape--left')).toHaveAttribute('aria-hidden', 'true');

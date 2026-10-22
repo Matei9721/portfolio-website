@@ -15,7 +15,7 @@ import {personalProjects} from './content/projects';
 const navigationItems = [
     {label: 'About', target: '#about'},
     {label: 'Work', target: '#work'},
-    {label: 'Builds', target: '#projects'},
+    {label: 'Pet projects', target: '#projects'},
 ];
 
 function App() {
