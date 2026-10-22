@@ -15,31 +15,39 @@ export const workExperience = [
         ],
         highlights: [
             {
+                id: 'reaxys-chemistry-assistant',
+                title: 'Reaxys chemistry assistant',
+                href: 'https://www.elsevier.com/about/press-releases/elsevier-introduces-reaxys-ai-search-enabling-faster-and-more-accessible',
+                segments: [
+                    text('Combined technical leadership with hands-on development. Led five data scientists over nine months to deliver natural-language reaction search and AI insights, translating text and molecular inputs into structured chemistry queries. Led dataset development, fine-tuning, orchestration, and evaluation with chemistry experts, and coordinated business stakeholders. Delivered the API to production, supporting up to 100 concurrent users and achieving a 90% helpfulness score from users.'),
+                ],
+            },
+            {
                 id: 'multi-agent-research',
+                title: 'Multi-agent research assistant',
                 segments: [text('Led the design and delivery of a cross-portfolio deep-research assistant that uses planning, reasoning, and research agents across multiple Elsevier solutions to accelerate scientific discovery with generative AI.')],
             },
             {
                 id: 'embase-ai',
+                title: 'EmbaseAI',
+                href: 'https://www.elsevier.com/products/embase/embase-ai',
                 segments: [
-                    text('Helped shape and build'),
-                    link(' EmbaseAI', 'https://www.elsevier.com/products/embase/embase-ai'),
-                    text(', a natural-language search assistant that simplified complex queries, increased user engagement, and supported a 20% uplift in reselling.'),
+                    text('Helped shape and build a natural-language search assistant that simplified complex queries, increased user engagement, and supported a 20% uplift in reselling.'),
                 ],
             },
             {
-                id: 'rag-chat-products',
+                id: 'pharmapendium-ai',
+                title: 'PharmapendiumAI',
+                href: 'https://www.elsevier.com/products/pharmapendium/pharmapendium-ai',
                 segments: [
-                    text('Implemented RAG enhancements with in-house fine-tuned models and launched conversational interfaces for'),
-                    link(' ReaxysAI', 'https://www.elsevier.com/about/press-releases/elsevier-introduces-reaxys-ai-search-enabling-faster-and-more-accessible'),
-                    text(' and'),
-                    link(' PharmapendiumAI', 'https://www.elsevier.com/products/pharmapendium/pharmapendium-ai'),
-                    text(', improving the search experience and boosting user retention by more than 30%.'),
+                    text('Implemented RAG enhancements with in-house fine-tuned models and launched conversational interfaces, improving the search experience and boosting user retention by more than 30%.'),
                 ],
             },
             {
                 id: 'information-extraction',
+                title: 'Information extraction at scale',
                 segments: [
-                    text('Planned and developed production information-extraction pipelines using rule-based and transformer/BERT models on AWS. Integrated into'),
+                    text('Planned, developed, and deployed production information-extraction pipelines using rule-based and transformer/BERT models on AWS. Integrated into'),
                     link(' Embiology', 'https://www.elsevier.com/products/embiology'),
                     text(', the pipeline improved precision by about 40% over the previous solution and processes millions of documents annually.'),
                 ],
@@ -56,37 +64,7 @@ export const workExperience = [
             'Vector DBs · OpenSearch',
             'Docker',
             'CI/CD',
-        ],
-    },
-    {
-        id: 'syntho',
-        company: 'Syntho',
-        period: '2021 — 2022',
-        role: 'Python Software Engineer Intern',
-        highlights: [
-            {
-                id: 'pii-scanners',
-                segments: [text('Improved PII and relationship scanners used to generate synthetic data.')],
-            },
-            {
-                id: 'database-subsetting',
-                segments: [text('Implemented a distributed database-subsetting algorithm for smaller development datasets.')],
-            },
-            {
-                id: 'visualization-dashboard',
-                segments: [text('Built a D3 dashboard and maintained Python services for inspecting synthetic-data quality and supporting generation workflows.')],
-            },
-            {
-                id: 'testing-and-devops',
-                segments: [text('Improved engineering reliability through unit and integration testing, CI/CD workflows, Docker environments, and bug investigation across application and deployment workflows.')],
-            },
-        ],
-        technologies: [
-            'Python',
-            'Unit & integration testing',
-            'Docker',
-            'CI/CD',
-            'D3.js',
+            'FastAPI · async scaling / load testing / observability',
         ],
     },
 ];

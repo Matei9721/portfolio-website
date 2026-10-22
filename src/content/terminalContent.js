@@ -15,7 +15,7 @@ export const terminalContent = {
         entity('role', 'AI Engineer '),
         text('and '),
         entity('role', 'Data Scientist '),
-        text('\u00a0working on search, information extraction, and language-model software.'),
+        text('\u00a0combining hands-on development with technical leadership to take search, information-extraction, and language-model systems into production.'),
         lineBreak(),
         lineBreak(),
         text('Outside work, I build small things for myself and friends, usually because a very specific problem has started bothering me.'),
@@ -36,11 +36,9 @@ export const terminalContent = {
             text('I started my higher education in Groningen in 2019, studying Computing Science—which is just another term for Computer Science :). I was always attracted to the business side of software and had something of a premonition about AI taking over, so I continued with a Master\'s in Data Science at the University of Amsterdam.'),
         ],
         experience: [
-            text('My first software role was at '),
-            entity('company', 'Syntho'),
-            text(', working on synthetic-data tooling. After that I moved to '),
+            text('At '),
             entity('company', 'Elsevier '),
-            text('where I build search, information-extraction, and language-model applications.'),
+            text('I combine technical leadership with hands-on development to deliver AI systems that are live in production. For the Reaxys chemistry assistant, I led five data scientists over nine months and delivered an API supporting up to 100 concurrent users. I also build search and information-extraction systems, including AWS pipelines that process millions of documents annually.'),
         ],
     },
     spotify: {

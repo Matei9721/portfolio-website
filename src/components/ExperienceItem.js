@@ -21,11 +21,17 @@ const renderSegments = (segments) => segments.map((segment, index) => {
 
 const ExperienceItem = ({experience}) => (
     <div className="experience-details">
-        <ol className="experience-highlights">
+        <ol className="experience-highlights" aria-label={`${experience.company} project highlights`}>
             {experience.highlights.map((highlight) => (
                 <li key={highlight.id}>
-                    <span className="experience-highlights__marker" aria-hidden="true" />
-                    <p>{renderSegments(highlight.segments)}</p>
+                    <div>
+                        <h4 className="experience-highlights__title">
+                            {highlight.href ? (
+                                <a href={highlight.href} rel="noopener noreferrer" target="_blank">{highlight.title}</a>
+                            ) : highlight.title}
+                        </h4>
+                        <p>{renderSegments(highlight.segments)}</p>
+                    </div>
                 </li>
             ))}
         </ol>
@@ -48,6 +54,8 @@ ExperienceItem.propTypes = {
         company: PropTypes.string.isRequired,
         highlights: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            href: PropTypes.string,
             segments: PropTypes.arrayOf(PropTypes.shape({
                 text: PropTypes.string.isRequired,
                 href: PropTypes.string,

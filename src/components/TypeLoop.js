@@ -34,7 +34,7 @@ const TypeLoop = () => {
             + '<span data-entity="role">Senior Data Scientist</span><span>;</span>',
         '<span class="identity-screen__assignment">'
             + '<span class="identity-screen__keyword">var</span> role =</span>'
-            + '<span data-entity="role">AI Engineer</span><span>;</span>',
+            + '<span data-entity="role">Senior AI Engineer</span><span>;</span>',
     ];
 
     return (
@@ -73,7 +73,7 @@ const TypeLoop = () => {
                     </button>
                 </h1>
                 <p className="hero__summary">
-                    At <span className="elsevier-text">Elsevier</span> I work on search, information extraction, and GenAI software.
+                    At <span className="elsevier-text">Elsevier</span> I combine technical leadership with hands-on development to build AI systems that are live in production.
                     At home I build tools for oddly specific problems.
                 </p>
 
@@ -111,7 +111,7 @@ const TypeLoop = () => {
                     </div>
 
                     <p className="visually-hidden">
-                        Senior Data Scientist and AI engineer based in Randstad, Netherlands.
+                        Senior Data Scientist and Senior AI Engineer based in Randstad, Netherlands.
                     </p>
                     <div className="identity-screen__code">
                         <span
